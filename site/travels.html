@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="shortcut icon" type="image/png" href="../images/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="../sources/bootstrap.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa|Nunito:300,300i,400,700" rel="stylesheet">
+    <!-- jQuery UI CSS -->
+    <link rel="stylesheet" href="../sources/jquery-ui.css">
+    <!-- FontAwesome CSS -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    
+    <!-- MY STYLES -->
+    <link rel="stylesheet" href="../site/css/myStyles.css">
+    
+    <title>Peter's Travels</title>
+
+    <style type="text/css">
+  
+    </style>
+    
+</head>
+<body>
+    <div class="container-fluid headerContainer slideIn" id="headerContFinnair">
+        <div class="headerImg slideIn"><img src="../images/finnair.jpg" id="finnairImg" class="img"></div>
+    </div>
+    <!-- =============================================
+                          NAVBAR 
+    ============================================== -->    
+    <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark mb-4 slideInNav">
+        <div class="navbar-brand" id="peters">Peter's</div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+            <div class="navbar-nav">
+                <a class="nav-item nav-link" href="../index.html">Home</a>
+                <a class="nav-item nav-link" href="#">Portfolio</a>
+                <a class="nav-item nav-link" href="../site/links.html">Links</a>
+                <a class="nav-item nav-link" href="../dict/index.html">Dictionary</a>
+                <a class="nav-item nav-link active" href="#">Travels</a>
+                <a class="nav-item nav-link" id="homePageContactNav">Contact</a>
+            </div>
+        </div>
+    </nav>
+  
+    <!-- =============================================
+                GOOGLE MAP & FLIGHTRADAR
+    ============================================== --> 
+    <div id="googleMapWrapper" class="container text-center mt-3 fadeIn">
+        <div class="title">My Travels</div> 
+        <div class="row travelTitleRow">
+            <div class="col-md-4 text-center iframeTitle">Cities I've visited</div>
+            <div class="col-md-8 text-left iframeDescription">Here you can check out the cities and places I've already visited all over the world.</div>
+        </div>
+        <iframe class="travelIframe" src="https://www.google.com/maps/d/embed?mid=1gCNBb9ATlYb-OYv_5dgHOcs3Flg&ll=50%2C70&z=2" width="100%" height="480"></iframe>
+
+        <div class="row travelTitleRow">
+            <div class="col-md-4 text-center iframeTitle">My Flight Diary</div>
+            <div class="col-md-8 text-left iframeDescription">Below you can see a detailed breakdown and statistics about all the flights I've taken so far.</div>
+        </div>
+        <iframe class="travelIframe" src="https://my.flightradar24.com/kinpeter85" width="100%" height="700"></iframe>
+
+    </div>
+    <div id="dictPlaceHolder"></div>
+    
+    <div id="backToTop">
+        <i class="fas fa-angle-double-up fa-2x"></i>
+        <p>to top</p>
+    </div>
+    
+    <!-- =============================================
+                      CONTACT SECTION 
+    ============================================== -->
+    <div id="contact" class="container-fluid contactWrapper bg-dark fadeIn">
+        <div class="container text-light text-center pt-4">
+            <h2>Want to know more?</h2>
+            <h5>Contact me / check out my page via:</h5>
+            <div class="ctcIcons">
+                <a id="emailBtn"><i class="fas fa-at fa-3x" id="email"></i></a>
+                <a href="https://www.facebook.com/peter.kin" target="_blank"><i class="fab fa-facebook-square fa-3x" id="fb"></i></a>
+                <a href="skype:kinpeter?chat" target="_blank"><i class="fab fa-skype fa-3x" id="skype"></i></a>
+                <a href="https://www.linkedin.com/in/peter-kin-6b7794172/" target="_blank"><i class="fab fa-linkedin fa-3x" id="linkedin"></i></a>
+                <a href="https://github.com/KinPeter" target="_blank"><i class="fab fa-github fa-3x" id="github"></i></a>
+                <a href="https://www.flickr.com/photos/ptkin/" target="_blank"><i class="fab fa-flickr fa-3x" id="flickr"></i></a> 
+                <div class="ctcText"> </div>
+            </div>
+            
+            <!-- =============================================
+                              EMAIL FORM 
+            ============================================== -->
+            <div class="container" id="emailform"> 
+                <form id="formLines">
+                    <div class="form-group">
+                        <label for="inputEmail">Your email address</label>
+                        <input type="email" class="form-control" id="senderEmail" name="senderEmail" placeholder="Enter email">
+                        <small id="emailHelp" class="form-text text-muted">I'll never share your email with anyone else.</small>
+                    </div>
+                    <div class="form-group">
+                        <label for="inputSubject">Subject</label>
+                        <input type="text" class="form-control" id="inputSubject" name="inputSubject">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="inputMessage">Your message</label>
+                        <textarea class="form-control" id="inputMessage" name="inputMessage" rows="3"></textarea>
+                    </div>
+                    <div id="emailSubmit" class="btn btn-primary">Submit</div>
+                </form>
+                <div id="emailError"> </div>
+            </div>      
+            
+            <div class="copyright">Copyright &copy; 2019, Peter Kin </div>
+            
+        </div>        
+    </div>
+    
+
+    
+    <!-- =============================================
+                          SCRIPT 
+    ============================================== --> 
+    <!-- JQUERY, JQUERY UI, BOOTSTRAP, POPPER -->
+    <script src="../sources/jquery-3.3.1.js"></script>
+    <script src="../sources/bootstrap.bundle.min.js"></script>
+    <script src="../sources/jquery-ui.js"></script>
+    
+    <!-- MY SCRIPT -->
+    <script src="../site/js/script-general.js"></script>
+    <script src="../site/js/script-contact.js"></script>
+    <script src="../site/js/script-travels.js"></script>
+    
+    <script type="text/javascript">  
+        
+    </script>
+</body>
+</html>
