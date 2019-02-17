@@ -2,6 +2,25 @@
 //                      LINKS SCRIPTS
 //==========================================================
 
+//initiate page load
+if ($("body").hasClass("linksBody")) {
+    //hide and toggle search
+    $("#linksWrapper").hide();
+    $("#linksSearchToggle").click(function() {
+        $("#linksWrapper").toggle("slow");
+    }); 
+    $("#linksMatches").hide();
+    //show 'loading' while ajax call in progress
+    $('.list-group').html('<li class="list-group-item">loading...</li>');
+    //fill up the lists
+    fillListFromAPI('#topPicksList', 'toppicks');
+    fillListFromAPI('#coursesList', 'courses');
+    fillListFromAPI('#linuxList', 'linux');
+    fillListFromAPI('#resourcesList', 'resources');
+    fillListFromAPI('#docsList', 'docs');
+    fillListFromAPI('#frameWorksList', 'frameworks');
+}
+
 //if the viewport is higher than the document, set the placeholder div height to push the footer to the bottom
 function setPlaceHolderHeightLinks() {
     if (window.innerHeight > ($(".headerContainer").height() + $(".navbar").height() + $("#linksListView").height() + $("#contact").height()) + 100) {
@@ -19,7 +38,7 @@ $("#linksInput").keypress(function (e) {
 
 //fills the lists from the node API
 function fillListFromAPI(domElement, category) {
-    $.getJSON(`https://cors-anywhere.herokuapp.com/https://ptkin-link-api.herokuapp.com/cat/${category}`, (data) => {
+    $.getJSON(`http://ptkin.net/dbadmin/server/server.php?met=all&cat=${category}`, (data) => {
         if (!data) {
             return alert('No data was found :(');
         }
@@ -31,40 +50,16 @@ function fillListFromAPI(domElement, category) {
         });
     });
 }
-//initiate page load
-if ($("body").hasClass("linksBody")) {
-    //hide and toggle search
-    $("#linksWrapper").hide();
-    $("#linksSearchToggle").click(function() {
-        $("#linksWrapper").toggle("slow");
-    }); 
-    $("#linksMatches").hide();
-    //show 'loading' while ajax call in progress
-    $('.list-group').html('<li class="list-group-item">loading...</li>');
-    //Check connection to API and database:  
-    $.get(`https://cors-anywhere.herokuapp.com/https://ptkin-link-api.herokuapp.com/check`, () => {
-        //if OK, fill up the lists
-        fillListFromAPI('#topPicksList', 'toppicks');
-        fillListFromAPI('#coursesList', 'courses');
-        fillListFromAPI('#linuxList', 'linux');
-        fillListFromAPI('#resourcesList', 'resources');
-        fillListFromAPI('#docsList', 'docs');
-        fillListFromAPI('#frameWorksList', 'frameworks');
-    }).fail((xhr, status, message) => {
-        //if not, alert:
-        alert('Unable to connect to the API on Heroku :( \n' + status + ': ' + message);
-    });
-}
 
 //function to fill the list for autocomplete
 async function getLinkNames() {
     try {
-        var result = await fetch('https://cors-anywhere.herokuapp.com/https://ptkin-link-api.herokuapp.com/allnames');
+        var result = await fetch('http://ptkin.net/dbadmin/server/server.php?met=namelist');
         var data = await result.json();
         var array = data.map((link) => link.name);
         return array;
     } catch (error) {
-        alert(error.message);
+        alert('Sorry, autocomplete is out of order now. ->', error.message);
     }
 }
 
@@ -74,7 +69,7 @@ async function getLinkNames() {
 */
 function searchFromAPI(domElement, name) {
     $('#linksMatches').show();
-    $.getJSON(`https://cors-anywhere.herokuapp.com/https://ptkin-link-api.herokuapp.com/search/${name}`, (data) => {
+    $.getJSON(`http://ptkin.net/dbadmin/server/server.php?met=sr&name=${name}`, (data) => {
         //clear 'loading' text
         $(domElement).html('');
         //fill up the list
@@ -83,7 +78,7 @@ function searchFromAPI(domElement, name) {
         });
     }).fail((xhr, status, message) => {
         $(domElement).html('');
-        $(domElement).append('<li class="list-group-item">Unable to fetch data the API on Heroku :( Reason: ' + status + ': ' + message + '</li>');
+        $(domElement).append('<li class="list-group-item">Unable to fetch data or link not found. :(</li>');
     });
 }
 
