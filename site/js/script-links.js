@@ -84,7 +84,7 @@ function searchFromAPI(domElement, name) {
     }).fail((xhr, status, message) => {
         $(domElement).html('');
         $(domElement).append('<li class="list-group-item">Unable to fetch data the API on Heroku :( Reason: ' + status + ': ' + message + '</li>');
-    });;
+    });
 }
 
 /****************************************************
