@@ -18,14 +18,14 @@
     <!-- MY STYLES -->
     <link rel="stylesheet" href="../site/css/myStyles.css">
     
-    <title>Peter's Links</title>
+    <title>Peter's Portfolio</title>
 
     <style type="text/css">
   
     </style>
     
 </head>
-<body class="linksBody">
+<body class="portfolioBody">
     <div class="container-fluid headerContainer slideIn" id="headerContLinks">
         <div class="linksHeader">$(<span class="codeYellow">".myClass"</span>).<span class="codePurple">click</span>(<span class="codeBlue">function</span> () {<br>&nbsp;&nbsp;&nbsp;&nbsp;    $(<span class="codeLinks">"#LINKS"</span>).<span class="codePurple">show</span>();<br>};</div>
     </div>
@@ -40,8 +40,8 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="../index.html">Home</a>
-                <a class="nav-item nav-link" href="../site/portfolio.html">Portfolio</a>
-                <a class="nav-item nav-link active" href="#">Links</a>
+                <a class="nav-item nav-link active" href="#">Portfolio</a>
+                <a class="nav-item nav-link" href="../site/links.html">Links</a>
                 <a class="nav-item nav-link" href="../dict/index.html">Dictionary</a>
                 <a class="nav-item nav-link" href="../site/travels.html">Travels</a>
                 <a class="nav-item nav-link" id="homePageContactNav">Contact</a>
@@ -52,74 +52,9 @@
     <!-- =============================================
                           LINKS 
     ============================================== --> 
-    <div class="container fadeIn"> 
-        <div class="title text-center">Links</div>
-        <div id="linksSearchToggle" class="text-center"><i id="searchIcon" class="fas fa-search"></i><span class="hoverContent">Search</span></div>
-    </div>
+
     
-    <!-- ************** SEARCH DIV *************** -->
-    <div id="linksWrapper" class="container text-center mt-3 fadeIn">
-        <input class="form-control bg-dark text-light" type="text" id="linksInput" placeholder="Search for a link">
-        <div class="custom-control custom-checkbox text-right">
-            <input type="checkbox" class="custom-control-input" id="autoCompleteCheck" checked>
-            <label class="custom-control-label" for="autoCompleteCheck">Autocomplete</label>    
-        </div>
-        <button class="btn mt-2 mb-4" type="button" id="linksSubmit">Search</button>
-        <div class="text-left" id="linksMatches">
-            <div class="accordion" id="linksAccordion">
-                <div class="card rounded">
-                    <div class="card-header btn text-left" id="headingOne" data-toggle="collapse" data-target="#linksCollapse">Search results</div> 
-                    <div id="linksCollapse" class="collapse show" data-parent="#linksAccordion">
-                        <ul class="list-group" id="linksResults"></ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     
-    <!-- *************** LIST DIV **************** -->
-    <div class="container fadeIn" id="linksListView"> 
-        <div class="row">
-            <div class="col-md-6 linksDiv">
-                <div class="accordion" id="leftAccordion">
-                    <div class="card rounded">
-                        <div class="card-header btn text-left" data-toggle="collapse" data-target="#topPicksCollapse">Top Picks</div>
-                        <div id="topPicksCollapse" class="collapse show" data-parent="#leftAccordion">
-                            <ul class="list-group" id="topPicksList"></ul>
-                        </div>
-                        <div class="card-header btn text-left" data-toggle="collapse" data-target="#schoolCollapse">School and Courses</div>
-                        <div id="schoolCollapse" class="collapse" data-parent="#leftAccordion">
-                            <ul class="list-group" id="coursesList"></ul>
-                        </div>
-                        <div class="card-header btn text-left" data-toggle="collapse" data-target="#linuxCollapse">Linux</div>
-                        <div id="linuxCollapse" class="collapse" data-parent="#leftAccordion">
-                            <ul class="list-group" id="linuxList"></ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 linksDiv">
-                <div class="accordion" id="rightAccordion">
-                    <div class="card rounded">
-                        <div class="card-header btn text-left" data-toggle="collapse" data-target="#resourcesCollapse">Resources</div>
-                        <div id="resourcesCollapse" class="collapse show" data-parent="#rightAccordion">
-                            <ul class="list-group" id="resourcesList"></ul>
-                        </div>
-                        <div class="card-header btn text-left" data-toggle="collapse" data-target="#docsCollapse">References, Docs, Tutorials</div>
-                        <div id="docsCollapse" class="collapse" data-parent="#rightAccordion">
-                            <ul class="list-group" id="docsList"></ul>
-                        </div>
-                        <div class="card-header btn text-left" data-toggle="collapse" data-target="#frameWorksCollapse">Frameworks, Editors, IDEs</div>
-                        <div id="frameWorksCollapse" class="collapse" data-parent="#rightAccordion">
-                            <ul class="list-group" id="frameWorksList"></ul>
-                        </div>
-                    </div>
-                </div>
-            </div>      
-        </div>
-    </div>
-    
-    <div id="linksPlaceHolder"></div>
     
     <div id="backToTop">
         <i class="fas fa-angle-double-up fa-2x"></i>
@@ -185,8 +120,7 @@
     <!-- MY SCRIPT -->
     <script src="../site/js/script-general.js"></script>
     <script src="../site/js/script-contact.js"></script>
-    <script src="../site/js/script-links.js"></script>
-    <script src="../site/js/script-autocomplete.js"></script>
+    <script src="../site/js/script-portfolio.js"></script>
     
     <script type="text/javascript">  
         
