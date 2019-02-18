@@ -330,7 +330,84 @@ p {
 /*************************************************
 *                    HEADER
 */
+.pf-logos img{
+    -webkit-filter: drop-shadow(0px 0px 3px darkorange);
+    filter: drop-shadow(0px 0px 3px darkorange);
+    transform: scale(0.5);
 
+}
+
+/* .pf-logos {
+    width: 100%; 
+    margin: 0 auto;
+ } */
+
+@media (min-width: 367px) {
+
+}
+@media (min-width: 576px) {
+    
+}  
+@media (min-width: 768px) {
+    .pf-logos {
+        width: 670px !important;
+        margin: 0 auto;
+        padding-top: 1rem !important;
+    }
+    #pf-logo-html {   margin-left: 0rem;   margin-top: -1rem;  width: 60px;} 
+    #pf-logo-css {    margin-left: -1.5rem;   margin-top: 1rem; }
+    #pf-logo-boots {  margin-left: -1.3rem;   margin-top: -1rem; }
+    #pf-logo-js {     margin-left: -1rem;   margin-top: -2rem;  width: 60px;}
+    #pf-logo-jquery { margin-left: -2rem;  margin-top: 3rem;  width: 95px;}
+    #pf-logo-php {    margin-left: -2rem;   margin-top: -2rem; }
+    #pf-logo-mysql {  margin-left: -2rem;  margin-top: 0rem;  width: 95px;}
+    #pf-logo-node {   margin-left: -1rem;   margin-top: -1.5rem; }
+    #pf-logo-npm {    margin-left: -1rem;  margin-top: 2.5rem;  width: 60px;}
+    #pf-logo-java {   margin-left: -2rem;   margin-top: -2rem;  width: 60px;}
+    #pf-logo-python { margin-left: -1.5rem;   margin-top: 1rem; }
+    #pf-logo-git {    margin-left: -1.5rem;   margin-top: -1.5rem; }
+    #pf-logo-github { margin-left: -1.5rem;  margin-top: 1rem; }
+    .pf-logos img{
+        transform: scale(1); 
+    }
+}
+@media (min-width: 992px) { 
+    .pf-logos {
+        margin-top: 2rem !important;
+        padding-top: 0 !important;
+    }
+}
+
+@media (min-width: 1330px) { 
+    .pf-logos {
+        width: 90vw !important; 
+        margin: 0 auto !important;
+    }
+    #pf-logo-html {   margin-left: 3rem;   margin-top: 2rem;  width: 60px;} 
+    #pf-logo-css {    margin-left: 0rem;   margin-top: 5rem; }
+    #pf-logo-boots {  margin-left: 0rem;   margin-top: 0rem; }
+    #pf-logo-js {     margin-left: 3rem;   margin-top: 0rem;  width: 60px;}
+    #pf-logo-jquery { margin-left: -1rem;  margin-top: 5rem;  width: 95px;}
+    #pf-logo-php {    margin-left: 3rem;   margin-top: 2rem; }
+    #pf-logo-mysql {  margin-left: -2rem;  margin-top: 5rem;  width: 95px;}
+    #pf-logo-node {   margin-left: 3rem;   margin-top: 0rem; }
+    #pf-logo-npm {    margin-left: -1rem;  margin-top: 5rem;  width: 60px;}
+    #pf-logo-java {   margin-left: 3rem;   margin-top: 0rem;  width: 60px;}
+    #pf-logo-python { margin-left: 2rem;   margin-top: 4rem; }
+    #pf-logo-git {    margin-left: 3rem;   margin-top: 0rem; }
+    #pf-logo-github { margin-left: -1rem;  margin-top: 3rem; }
+}
+
+@media (min-width: 1500px) { 
+    .pf-logos {
+        width: 80vw !important;
+    }
+}
+@media (min-width: 1720px) { 
+    .pf-logos {
+        width: 70vw !important; 
+    }
+}
 
 
 
