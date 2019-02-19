@@ -406,12 +406,61 @@ p {
         width: 70vw !important; 
     }
 }
-
+/*************************************************
+*                   GENERAL
+*/
+.subTitleRow {
+    margin: 1rem auto 3rem auto;
+    width: 100%;
+}
+.subTitle {
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+    font-size: 1.5rem;
+    border-bottom: 2px solid rgb(235,150,40);
+    border-right: none;
+}
+.subDescription {
+    padding-top: .3rem;
+    padding-left: 2rem;
+    text-align: justify !important;
+}
+.pf-div a {
+    font-weight: bold;
+    color: darkorange;
+}
+.pf-div a:hover {
+    color: #343A40;
+}
+.pf-img {
+    margin-bottom: 1.5rem;
+    box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+}
+.pf-div {
+    text-align: justify;
+}
+.pf-div h4 {
+    border-bottom: 2px solid rgb(235,150,40);
+}
+.pf-desc {
+    margin-top: 1rem;
+}
+.pf-bg-light .badge {
+    color: orange;
+}
+.pf-feature{
+    font-family: 'Comfortaa', cursive;
+    font-weight: bold;
+}
+.pf-feature i {
+    margin-right: .5rem;
+    color: darkorange;
+}
 /*************************************************
 *                  LIGHT DIVS 
 */
 .pf-bg-light {
-    height: 400px;
+    margin-bottom: 5rem;
 }
 
 
@@ -422,11 +471,23 @@ p {
 *                   DARK DIVS 
 */
 .pf-bg-dark {
-    height: 400px;
     position: relative;
     padding-left: 0 !important;
     box-shadow: 0 5px 10px 2px rgba(200,100,0,0.5);
+    margin-bottom: 5rem;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
 }
+.pf-bg-dark h4, .pf-bg-dark p, .pf-bg-dark .pf-feature {
+    color: white;
+}
+.pf-bg-dark .badge {
+    color: #343A40;
+    background-color: darkorange;
+}
+
+
+
 .pf-top-poly {
     position: absolute;
     top: -75px;
@@ -646,12 +707,6 @@ p {
     border: 1px solid rgb(235,150,40);
     box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 }
-/*@media (max-width: 480px) {
-    #finnairImg img {
-        position: relative;
-        left: -200px;
-    }
-}*/
 
 
 /*==========================================================
@@ -680,7 +735,7 @@ p {
     .welcomeP {
         font-size: 1.2rem;
     }
-    .iframeTitle, .smallTitle {
+    .iframeTitle, .smallTitle, .subTitle {
         border-right: 2px solid rgb(235,150,40);
         border-bottom: none;
     }
