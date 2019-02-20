@@ -494,7 +494,9 @@ p {
     color: #343A40;
     background-color: darkorange;
 }
-
+.pf-bg-dark h4 {
+    font-weight: 300;
+}
 
 
 .pf-top-poly {

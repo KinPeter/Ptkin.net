@@ -5,6 +5,7 @@
 /****************************************************
 *                  HEADER FUNCTIONS
 */
+//function to move around objects following mouse movements
 function moveObject(target, divider) {
     var origMarLeft = parseInt(target.css('margin-left').slice(0, -2));
     var origMarTop = parseInt(target.css('margin-top').slice(0, -2));
@@ -30,6 +31,7 @@ function moveObject(target, divider) {
         }
     });
 };
+//set up movements of the logos in the header depending on screen size
 if ($(window).width() > 1330) {
     // $(".headerContainer").find('*').removeAttr("style");
     moveObject($('.pf-logo-grp1'),100);
@@ -41,9 +43,12 @@ if ($(window).width() > 1330) {
 }
 
 
+/****************************************************
+*                  BODY FUNCTIONS
+*/
+//functions to animate the down arrows
 var setArrow = (id) => $(id).css({'color':'orange' , 'transform' : 'scale(1, 1)'});
 var resetArrow = (id) => $(id).css({'color':'black' , 'transform' : 'scale(1, 0.7)'});
-
 function downArrows() {
     setArrow('#pf-arrow-1');
     setTimeout(() => {
@@ -57,39 +62,9 @@ function downArrows() {
             }, 50)
         }, 50)
     }, 50)
-
     setTimeout(() => {
         downArrows();
     }, 1000)
 }
 downArrows();
-
-// function setArrow(id) {$(id).css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});}
-// function resetArrow(id) {$(id).css({'color':'black' , 'transform' : 'scale(1, 0.7)'});}    
-// function downArrows() {
-//     $('#pf-arrow-1').css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});
-//     setTimeout(() => {
-//         $('#pf-arrow-1').css({'color':'black' , 'transform' : 'scale(1, 0.7)'});
-//         $('#pf-arrow-2').css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});
-//         setTimeout(() => {
-//             $('#pf-arrow-2').css({'color':'black' , 'transform' : 'scale(1, 0.7)'});
-//             $('#pf-arrow-3').css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});
-//             setTimeout(() => {
-//                 $('#pf-arrow-3').css({'color':'black' , 'transform' : 'scale(1, 0.7)'});
-//             }, 50)
-//         }, 50)
-//     }, 50)
-
-//     setTimeout(() => {
-//         downArrows();
-//     }, 1000)
-// }
-// downArrows();
-
-
-
-
-/****************************************************
-*                  HEADER FUNCTIONS
-*/
 
