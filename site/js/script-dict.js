@@ -36,7 +36,7 @@ function wordLookup(word) {
     //look for partial match
     i = 0;
     while (i < hun.length) {
-        if ( hun[i].includes(word.toLowerCase()) && !exact.some(row => row.includes(hun[i])) ) {
+        if ( hun[i].toLowerCase().includes(word.toLowerCase()) && !exact.some(row => row.includes(hun[i])) ) {
             partial.push([hun[i], kor[i]]);
         } else if ( kor[i].includes(word.toLowerCase()) && !exact.some(row => row.includes(kor[i])) ) {
             partial.push([kor[i], hun[i]]);
