@@ -438,13 +438,11 @@ p {
 #pf-arrows {
     margin-bottom: 5rem;
 }
-
-
-.pf-div a {
+.pf-div a, .subTitleRow a {
     font-weight: bold;
     color: darkorange;
 }
-.pf-div a:hover {
+.pf-div a:hover, .subTitleRow a:hover {
     color: #343A40;
 }
 .pf-img {
@@ -478,10 +476,6 @@ p {
     margin-bottom: 5rem;
 }
 
-
-
-
-
 /*************************************************
 *                   DARK DIVS 
 */
@@ -489,9 +483,9 @@ p {
     position: relative;
     padding-left: 0 !important;
     box-shadow: 0 5px 10px 2px rgba(200,100,0,0.5);
-    margin-bottom: 5rem;
-    padding-top: 2rem;
-    padding-bottom: 2rem;
+    margin-bottom: 7rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
 }
 .pf-bg-dark h4, .pf-bg-dark p, .pf-bg-dark .pf-feature {
     color: white;

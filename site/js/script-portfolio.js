@@ -41,7 +41,7 @@ if ($(window).width() > 1330) {
 }
 
 
-var setArrow = (id) => $(id).css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});
+var setArrow = (id) => $(id).css({'color':'orange' , 'transform' : 'scale(1, 1)'});
 var resetArrow = (id) => $(id).css({'color':'black' , 'transform' : 'scale(1, 0.7)'});
 
 function downArrows() {
