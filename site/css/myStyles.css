@@ -425,6 +425,21 @@ p {
     padding-left: 2rem;
     text-align: justify !important;
 }
+#pf-lets-check {
+    font-family: 'Damion', cursive;
+    font-size: 2.5rem;
+    margin: 1rem auto 2rem auto;
+}
+#pf-arrows i {
+    display: block;
+    margin: -2rem auto;
+    /* transform: scaleY(.7); */
+}
+#pf-arrows {
+    margin-bottom: 5rem;
+}
+
+
 .pf-div a {
     font-weight: bold;
     color: darkorange;

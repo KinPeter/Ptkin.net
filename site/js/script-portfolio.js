@@ -41,6 +41,51 @@ if ($(window).width() > 1330) {
 }
 
 
+var setArrow = (id) => $(id).css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});
+var resetArrow = (id) => $(id).css({'color':'black' , 'transform' : 'scale(1, 0.7)'});
+
+function downArrows() {
+    setArrow('#pf-arrow-1');
+    setTimeout(() => {
+        resetArrow('#pf-arrow-1');
+        setArrow('#pf-arrow-2');
+        setTimeout(() => {
+            resetArrow('#pf-arrow-2');
+            setArrow('#pf-arrow-3');
+            setTimeout(() => {
+                resetArrow('#pf-arrow-3');
+            }, 50)
+        }, 50)
+    }, 50)
+
+    setTimeout(() => {
+        downArrows();
+    }, 1000)
+}
+downArrows();
+
+// function setArrow(id) {$(id).css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});}
+// function resetArrow(id) {$(id).css({'color':'black' , 'transform' : 'scale(1, 0.7)'});}    
+// function downArrows() {
+//     $('#pf-arrow-1').css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});
+//     setTimeout(() => {
+//         $('#pf-arrow-1').css({'color':'black' , 'transform' : 'scale(1, 0.7)'});
+//         $('#pf-arrow-2').css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});
+//         setTimeout(() => {
+//             $('#pf-arrow-2').css({'color':'black' , 'transform' : 'scale(1, 0.7)'});
+//             $('#pf-arrow-3').css({'color':'orange' , 'transform' : 'scale(1.1, 0.7)'});
+//             setTimeout(() => {
+//                 $('#pf-arrow-3').css({'color':'black' , 'transform' : 'scale(1, 0.7)'});
+//             }, 50)
+//         }, 50)
+//     }, 50)
+
+//     setTimeout(() => {
+//         downArrows();
+//     }, 1000)
+// }
+// downArrows();
+
 
 
 
