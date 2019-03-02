@@ -2,6 +2,9 @@
 //                      LINKS SCRIPTS
 //==========================================================
 
+//Primary domain:
+var domain = "http://p-kin.com"
+
 //initiate page load
 if ($("body").hasClass("linksBody")) {
     //hide and toggle search
@@ -38,7 +41,7 @@ $("#linksInput").keypress(function (e) {
 
 //fills the lists from the node API
 function fillListFromAPI(domElement, category) {
-    $.getJSON(`http://ptkin.net/dbadmin/server/server.php?met=all&cat=${category}`, (data) => {
+    $.getJSON(`${domain}/dbadmin/server/server.php?met=all&cat=${category}`, (data) => {
         if (!data) {
             return alert('No data was found :(');
         }
@@ -54,7 +57,7 @@ function fillListFromAPI(domElement, category) {
 //function to fill the list for autocomplete
 async function getLinkNames() {
     try {
-        var result = await fetch('http://ptkin.net/dbadmin/server/server.php?met=namelist');
+        var result = await fetch(`${domain}/dbadmin/server/server.php?met=namelist`);
         var data = await result.json();
         var array = data.map((link) => link.name);
         return array;
@@ -69,7 +72,7 @@ async function getLinkNames() {
 */
 function searchFromAPI(domElement, name) {
     $('#linksMatches').show();
-    $.getJSON(`http://ptkin.net/dbadmin/server/server.php?met=sr&name=${name}`, (data) => {
+    $.getJSON(`${domain}/dbadmin/server/server.php?met=sr&name=${name}`, (data) => {
         //clear 'loading' text
         $(domElement).html('');
         //fill up the list

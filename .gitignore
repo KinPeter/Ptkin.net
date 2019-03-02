@@ -1,6 +1,4 @@
 images/
 sources/
 site/static/
-dict/rawdict.xlsx
-site/temp/links.xlsx
-site/temp/test.html
+site/temp/

@@ -1,2 +1,2 @@
-# Ptkin.net
-My homepage at ptkin.net
+# P-kin.com
+My homepage at p-kin.com

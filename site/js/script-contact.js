@@ -2,6 +2,9 @@
 //                 CONTACT and EMAIL FORM
 //==========================================================
 
+//Primary domain:
+var domain = "http://p-kin.com"
+
 //initially hide the email form
 $("#emailform").hide();
 
@@ -52,7 +55,7 @@ $("#emailSubmit").click(function() {
         //attempt to send an email
         $.ajax({
             type: 'POST',
-            url: 'http://ptkin.net/site/php/email.php',
+            url: `${domain}/site/php/email.php`,
             // data to be added to query string:
             data: { 
                 senderEmail: $("#senderEmail").val(),
