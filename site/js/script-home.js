@@ -3,7 +3,7 @@
 //==========================================================
 
 //Primary domain:
-var domain = "http://p-kin.com"
+var domain = "https://www.p-kin.com"
 
 /****************************************************
 *                    DOWNLOAD CV
