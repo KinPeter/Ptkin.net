@@ -516,7 +516,9 @@ p {
     /* set height to pixels if you want angle to change with screen width */
 }
 
-
+#startpage-notes {
+    max-height: 200px;
+}
 
 
 /*==========================================================
