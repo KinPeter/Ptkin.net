@@ -21,77 +21,94 @@ $("#dictInput").keypress(function (e) {
 *                  SEARCH FUNCTION
 */
 function wordLookup(word) {
-    var exact = [];
-    var partial = [];
-    var i = 0;
-    //look for exact match
-    while (i < hun.length) {
-        if ( word.toLowerCase() == hun[i].toLowerCase() ) {
-            exact.push([hun[i], kor[i]]);
-        } else if ( word.toLowerCase() == kor[i].toLowerCase() ) {
-            exact.push([kor[i], hun[i]]);
+
+    word = word.trim().toLowerCase();
+
+    const preResults = {
+        "exact" : [], 
+        "startsWith" : [], 
+        "partial" : []  
+    };
+
+    for (let i = 0; i < hun.length; i++) {
+
+        //check for exact match        
+        if ( word == hun[i].toLowerCase() ) {
+            preResults.exact.push([hun[i], kor[i]]);
+        } else if ( word == kor[i].toLowerCase() ) {
+            preResults.exact.push([kor[i], hun[i]]);
         }
-        i++;
+
+        //check for match starting with word
+        else if ( hun[i].toLowerCase().startsWith(word) ) {
+            preResults.startsWith.push([hun[i], kor[i]]);
+        } else if ( kor[i].toLowerCase().startsWith(word) ) {
+            preResults.startsWith.push([kor[i], hun[i]]);
+        }  
+    
+        //check for match including word anywhere
+        else if ( hun[i].toLowerCase().includes(word) ) {
+            preResults.partial.push([hun[i], kor[i]]);
+        } else if ( kor[i].toLowerCase().includes(word) ) {
+            preResults.partial.push([kor[i], hun[i]]);
+        }  
     }
-    //look for partial match
-    i = 0;
-    while (i < hun.length) {
-        if ( hun[i].toLowerCase().includes(word.toLowerCase()) && !exact.some(row => row.includes(hun[i])) ) {
-            partial.push([hun[i], kor[i]]);
-        } else if ( kor[i].includes(word.toLowerCase()) && !exact.some(row => row.includes(kor[i])) ) {
-            partial.push([kor[i], hun[i]]);
-        }
-        i++;               
-    }
-    return [exact, partial];
+
+    // combineResults(preResults);
+    return preResults;
+}
+
+function combineResults(preResults) {
+    // finalize results array
+    const results = [];
+
+    preResults.exact.forEach((pair) => {
+        results.push(pair);
+    });
+    preResults.startsWith.forEach((pair) => {
+        results.push(pair);
+    });
+    preResults.partial.forEach((pair) => {
+        results.push(pair);
+    });
+
+    // resultOutput(results);
+    return results;
 }
 /****************************************************
 *                  OUTPUT FUNCTION
 */ 
-function resultOutput(exact, partial) {   
-    var i = 0;
-    var exactResult = '<div class="accordion" id="exactAccordion"> <div class="card rounded"> <div class="card-header btn text-left" id="headingOne" data-toggle="collapse" data-target="#exactCollapse">Exact matches</div> <div id="exactCollapse" class="collapse show" data-parent="#exactAccordion"><ul class="list-group">';
-    var partialResult = '<div class="accordion" id="partialAccordion"> <div class="card rounded"> <div class="card-header btn text-left" id="headingTwo" data-toggle="collapse" data-target="#partialCollapse">Partial matches</div> <div id="partialCollapse" class="collapse show" data-parent="#partialAccordion"><ul class="list-group">';
-
-    //IF there is no result at all
-    if (exact.length < 1 && partial.length < 1) {
-        exactResult += '<li class="list-group-item list-group-item-danger">Sorry, no matches.</li></ul></div></div></div>';
-        partialResult += '<li class="list-group-item list-group-item-danger">Sorry, no matches.</li></ul></div></div></div>';
+function resultOutput(result) {   
+    let resultHtml = `
+    <div class="accordion" id="exactAccordion"> 
+        <div class="card rounded"> 
+            <div class="card-header btn text-left" id="headingOne" data-toggle="collapse" data-target="#exactCollapse">Search results</div> 
+            <div id="exactCollapse" class="collapse show" data-parent="#exactAccordion">
+                <ul class="list-group">`;
+    
+    //IF there is no result
+    if (result.length < 1) {
+        resultHtml += '<li class="list-group-item text-warning">Sorry, no matches.</li>';
+    //IF there are too many results
+    } else if (result.length > 50) {
+        resultHtml += '<li class="list-group-item text-danger">Too many results, please narrow your search.</li>';    
+    //IF there are normal results
     } else {
-    //IF there ARE results
-        //if there is NO exact result
-        if (exact.length < 1) {
-            exactResult += '<li class="list-group-item list-group-item-danger">Sorry, no matches.</li></ul></div></div></div>';
-        } else {
-            //if there IS exact result
-            while (i < exact.length) {
-                exactResult += '<li class="list-group-item">' + exact[i][0] + ' = ' + exact[i][1] + '</li>';
-                i++;
-            }
-            exactResult += '</ul></div></div></div>';
-        }
-        //if there is NO partial result
-        if (partial.length < 1) {
-            partialResult += '<li class="list-group-item list-group-item-danger">Sorry, no matches.</li></ul></div></div></div>';
-        } else {
-            //if there IS partial result
-            i = 0;
-            while (i < partial.length) {
-                partialResult += '<li class="list-group-item">' + partial[i][0] + ' = ' + partial[i][1] + '</li>';
-                i++;
-            }
-            partialResult += '</ul></div></div></div>';
-        }
+        result.forEach(pair => {
+            resultHtml += '<li class="list-group-item">' + pair[0] + ' = ' + pair[1] + '</li>';
+        });
     }
-    return [exactResult, partialResult];
+    resultHtml += '</ul></div></div></div>';
+
+    return resultHtml;
 }
 
 /****************************************************
 *                 INITIATE SEARCH
 */
 $("#dictSubmit").click(function() {
-    $("#exactMatches").html(resultOutput(wordLookup($("#dictInput").val())[0], wordLookup($("#dictInput").val())[1])[0]);
-    $("#partialMatches").html(resultOutput(wordLookup($("#dictInput").val())[0], wordLookup($("#dictInput").val())[1])[1]);
+    const results = resultOutput( combineResults( wordLookup( $("#dictInput").val() ) ) );
+    $("#searchResults").html(results);
     $("#dictInput").val("")
     $(document).focus();
     $("#dictInput").autocomplete( "close" );
