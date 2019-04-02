@@ -23,10 +23,15 @@ $("#dictInput").keypress(function (e) {
 function wordLookup(word) {
 
     word = word.trim().toLowerCase();
+    // const regex = new RegExp('\\b' + word + '\\b') // does not work with korean :(
+    const regexOnOwn = new RegExp('(?:^|\\s|-|\'|~)' + word +  '(?:$|\\s|,|-|\'|~)')
+    const regexInParentheses = new RegExp('(?:\\()' + word +  '(?:\\))')
 
     const preResults = {
         "exact" : [], 
+        "onOwn" : [],
         "startsWith" : [], 
+        "inParentheses" : [],
         "partial" : []  
     };
 
@@ -38,6 +43,13 @@ function wordLookup(word) {
         } else if ( word == kor[i].toLowerCase() ) {
             preResults.exact.push([kor[i], hun[i]]);
         }
+    
+        //check for word on it's own in the entry
+        else if (regexOnOwn.test(hun[i].toLowerCase())) {
+            preResults.onOwn.push([hun[i], kor[i]])
+        } else if (regexOnOwn.test(kor[i])) {
+            preResults.onOwn.push([kor[i], hun[i]])
+        }
 
         //check for match starting with word
         else if ( hun[i].toLowerCase().startsWith(word) ) {
@@ -46,6 +58,12 @@ function wordLookup(word) {
             preResults.startsWith.push([kor[i], hun[i]]);
         }  
     
+        //check for word on it's own but in parentheses
+        else if (regexInParentheses.test(hun[i].toLowerCase())) {
+            preResults.inParentheses.push([hun[i], kor[i]])
+        } else if (regexInParentheses.test(kor[i])) {
+            preResults.inParentheses.push([kor[i], hun[i]])
+        }
         //check for match including word anywhere
         else if ( hun[i].toLowerCase().includes(word) ) {
             preResults.partial.push([hun[i], kor[i]]);
@@ -60,19 +78,9 @@ function wordLookup(word) {
 
 function combineResults(preResults) {
     // finalize results array
-    const results = [];
-
-    preResults.exact.forEach((pair) => {
-        results.push(pair);
-    });
-    preResults.startsWith.forEach((pair) => {
-        results.push(pair);
-    });
-    preResults.partial.forEach((pair) => {
-        results.push(pair);
-    });
-
-    // resultOutput(results);
+    let results = [];
+    results = results.concat(preResults.exact, preResults.onOwn, preResults.startsWith, preResults.inParentheses, preResults.partial)
+    // showDictResults(results);
     return results;
 }
 /****************************************************
