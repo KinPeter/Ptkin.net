@@ -3,7 +3,7 @@
 //==========================================================
 
 //collapse the navbar after click
-$(".nav-link").click(function(){
+$(".nav-link").not('#funProjectsLink').click(function(){
     $(".navbar-collapse").collapse("hide");
 })
 //function to scroll to the bottom

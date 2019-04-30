@@ -139,6 +139,18 @@ p {
 .navbar .active {
     color: orange !important;
 }
+.dropdown-menu {
+    background-color: #343A40;
+    box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+    width: 200px !important;
+    padding: 1rem;
+}
+.dropdown-menu a {
+    color: rgb(173, 173, 173) !important;
+}
+.dropdown-menu a:hover {
+    color: rgb(221, 221, 221) !important;
+}
 /*               END OF navbar
 *************************************************/
 

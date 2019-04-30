@@ -59,9 +59,15 @@
             <div class="navbar-nav">
                 <a class="nav-item nav-link" href="../index.html">Home</a>
                 <a class="nav-item nav-link active" href="#">Portfolio</a>
+                <div class="dropdown">
+                    <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="funProjectsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fun Projects</a>                  
+                    <div class="dropdown-menu" aria-labelledby="funProjectsLink">
+                        <a class="nav-item nav-link" href="../countdowns/index.html" target="_blank">CountDowns App</a>
+                        <a class="nav-item nav-link" href="../bullshitgenerator/index.html" target="_blank">Bullshit Generator</a>                      
+                    </div>
+                </div>
                 <a class="nav-item nav-link" href="../site/links.html">Links</a>
                 <a class="nav-item nav-link" href="../site/dict.html">Dictionary</a>
-                <a class="nav-item nav-link" href="../countdowns/index.html">CountDowns App</a>
                 <a class="nav-item nav-link" href="../site/travels.html">Travels</a>
                 <a class="nav-item nav-link" id="homePageContactNav">Contact</a>
             </div>
@@ -225,23 +231,26 @@
     </div>
 
     <!-- =============================================
-                   DESKTOP DICTIONARY
+                   BULLSHIT GENERATOR
     ============================================== --> 
     <div class="container-fluid fadeIn pf-bg-light">
         <div class="container" id=""> 
             <div class="row">
                 <div class="col-md-6 pf-div text-center">
-                    <img src="../images/portfolio/python-dict-sm.jpg" alt="python dict" class="img-fluid rounded pf-img">
+                    <img src="../images/portfolio/bullshit.jpg" alt="bullshit generator" class="img-fluid rounded pf-img">
                 </div>
                 <div class="col-md-6 pf-div">
-                    <h4>Dictionary desktop app</h4>
-                    <span class="badge badge-dark">Python</span>
-                    <span class="badge badge-dark">Desktop</span>
-                    <p class="pf-desc"> Not a pretty one, but it's my first working, functional and useful desktop application. All written in Python, for the back-end part I used OpenPYXL, and the front-end is created by the Tkinter library.</p>
-                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Read data from Excel</div>
-                    <p>The program is using my own word list that is stored in an Excel file.</p>
-                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Ability to add new words</div>
-                    <p>Unlike my web dictionary, this app is also capable of adding and saving new word pairs to the recource file.</p>
+                    <h4>Bullshit Generator web app</h4>
+                    <span class="badge badge-dark">JavaScript</span>
+                    <span class="badge badge-dark">jQuery</span>
+                    <span class="badge badge-dark">HTML5</span>
+                    <span class="badge badge-dark">CSS</span>
+                    <span class="badge badge-dark">Bootstrap</span>
+                    <p class="pf-desc"> It started out as a Java project at school, but I really liked the possibilities of the generator algorithms, so I decided to "translate" the program to JavaScript and created a nice colorful web UI for it. <a href="https://www.p-kin.com/bullshitgenerator" target="_blank">Try it now!</a></p></p>
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Multi-language</div>
+                    <p>Both the UI, the source files and bullshit generator algorithms are available in Hungarian and English.</p>
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Read source text from files</div>
+                    <p>As source text the user can choose from different pre-uploaded books from the server.</p>
                 </div>      
             </div>
         </div>
@@ -274,6 +283,29 @@
         <svg class="pf-bottom-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
             <polygon fill="#343A40" points="0,0 100,0 100,100"/>
         </svg>
+    </div>
+
+    <!-- =============================================
+                   DESKTOP DICTIONARY
+    ============================================== --> 
+    <div class="container-fluid fadeIn pf-bg-light">
+        <div class="container" id=""> 
+            <div class="row">
+                <div class="col-md-6 pf-div text-center">
+                    <img src="../images/portfolio/python-dict-sm.jpg" alt="python dict" class="img-fluid rounded pf-img">
+                </div>
+                <div class="col-md-6 pf-div">
+                    <h4>Dictionary desktop app</h4>
+                    <span class="badge badge-dark">Python</span>
+                    <span class="badge badge-dark">Desktop</span>
+                    <p class="pf-desc"> Not a pretty one, but it's my first working, functional and useful desktop application. All written in Python, for the back-end part I used OpenPYXL, and the front-end is created by the Tkinter library.</p>
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Read data from Excel</div>
+                    <p>The program is using my own word list that is stored in an Excel file.</p>
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Ability to add new words</div>
+                    <p>Unlike my web dictionary, this app is also capable of adding and saving new word pairs to the recource file.</p>
+                </div>      
+            </div>
+        </div>
     </div>
     <!-- <div class="container-fluid bg-dark pf-bg-dark">
         <svg class="pf-top-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
