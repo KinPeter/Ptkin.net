@@ -1,6 +1,29 @@
 //==========================================================
 //                   DICTIONARY SCRIPTS
 //==========================================================
+const url = 'https://docs.google.com/spreadsheets/d/e/2PACX-1vST-KJ2L6WJJLRw9phcMslOIumSFrjPXY9UUnzw3X9Urq1vwRrDoVhlTiGwuPSda8XRJPolPR65XBD7/pub?gid=0&single=true&output=tsv'
+
+const kor = []
+const hun = []
+
+function fetchDictFromGoogleSheet(url, kor, hun) {
+    $.get(url)
+        .done((result) => {
+            let lines = result.split(/\r\n/)
+            lines.forEach(line => {
+                let pair = line.split(/\t/)
+                kor.push(pair[0])
+                hun.push(pair[1])
+            })
+            $("#dictInput").autocomplete({source: hun.concat(kor)})
+        })
+        .fail((error) => {
+            alert(error.status + ": Error loading file.")
+            console.log(error)
+        })
+}
+
+fetchDictFromGoogleSheet(url, kor, hun)
 
 //if the viewport is higher than the document, set the placeholder div height to push the footer to the bottom
 function setPlaceHolderHeight() {
