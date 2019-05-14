@@ -63,7 +63,8 @@
                     <a class="nav-item nav-link dropdown-toggle" href="#" role="button" id="funProjectsLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Fun Projects</a>                  
                     <div class="dropdown-menu" aria-labelledby="funProjectsLink">
                         <a class="nav-item nav-link" href="../countdowns/index.html" target="_blank">CountDowns App</a>
-                        <a class="nav-item nav-link" href="../bullshitgenerator/index.html" target="_blank">Bullshit Generator</a>                      
+                        <a class="nav-item nav-link" href="../bullshitgenerator/index.html" target="_blank">Bullshit Generator</a>
+                        <a class="nav-item nav-link" href="../vocabcards/index.html" target="_blank">VocabCards App</a>                      
                     </div>
                 </div>
                 <a class="nav-item nav-link" href="../site/links.html">Links</a>
@@ -90,6 +91,43 @@
         <i class="fas fa-chevron-down fa-3x" id="pf-arrow-1"></i>
         <i class="fas fa-chevron-down fa-3x" id="pf-arrow-2"></i>
         <i class="fas fa-chevron-down fa-3x" id="pf-arrow-3"></i>
+    </div>
+
+    <!-- =============================================
+                       VOCABCARDS
+    ============================================== --> 
+    <div class="container-fluid bg-dark pf-bg-dark">
+        <svg class="pf-top-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#343A40" points="0,100 100,0 100,100"/>
+        </svg>
+        <div class="container" id=""> 
+            <div class="row">
+                <div class="col-md-6 pf-div">
+                    <h4>VocabCards web app</h4>
+                    <span class="badge badge-dark">JavaScript</span>
+                    <span class="badge badge-dark">jQuery</span>
+                    <span class="badge badge-dark">HTML</span>
+                    <span class="badge badge-dark">CSS</span>
+                    <span class="badge badge-dark">PHP</span>
+                    <p class="pf-desc"> Mobile-friendly web app to practice Korean words from my wordlist, using flashcards.</p>
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Data from Google Sheet</div>
+                    <p>The app downloads the wordlist file directly from a published Google Sheet in TSV format which is then easily parsed by JavaScript.</p>
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Progress saved on server</div>
+                    <p>The progress is saved in a JSON file on the server using arrays to store the indexes of the words.</p>
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Difficult Words</div>
+                    <p>If a choice is not correct, the word goes into a separate array so the user can review those words later again.</p>
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Random, with a twist</div>
+                    <p>The cards are picked randomly, but the different choices are programmed not to be so easy if possible - in case there are similar words in the list.</p>                    
+                </div>      
+                <div class="col-md-6 pf-div">
+                    <img src="../images/portfolio/vocabcards.jpg" alt="startpage" class="img-fluid rounded pf-img">
+                    <img src="../images/portfolio/vocabcards-m.jpg" alt="startpage" class="img-fluid rounded pf-img" id="startpage-notes">
+                </div>
+            </div>
+        </div>
+        <svg class="pf-bottom-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <polygon fill="#343A40" points="0,0 100,0 100,100"/>
+        </svg>
     </div>
 
     <!-- =============================================
