@@ -1,1 +1,129 @@
 /* LINKS */
+#linksWrapper {
+    max-width: 700px;
+    margin-bottom: 5rem;
+}
+#linksInput, #passwordInput {
+    box-shadow: $usualBlackShadow;
+    border: 1px solid rgba(235,150,40,.4);
+}
+#linksSubmit, #CVSubmit {
+    background-color: $myOrange;
+    color: $myGrey;
+    width: 150px;
+    font-weight: bold;
+    border: 1px solid $myGrey;
+    text-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+    box-shadow: $usualBlackShadow;
+}
+#linksSubmit:hover {
+    background-color: orange;
+}
+
+/* OUTPUT CARDS */
+.card {
+    box-shadow: $usualBlackShadow;
+    border: none;
+    margin-bottom: .5rem;
+    .card-header {
+        background-color: $myOrange;
+        @extend %comfortaa-bold;
+        font-size: 1.2rem;
+        text-shadow: 1px 2px 4px rgba(0,0,0,0.5);
+        border: 1px solid $myGrey;
+    }
+}
+
+
+.list-group-item {
+    background-color: $myGrey;
+    color: white;
+    @extend %nunito400;
+    border: 1px solid rgba(235,150,40,.4);
+    border-radius: 0;
+}
+
+/* CHECKBOX */
+.custom-checkbox label{
+    @extend %nunito400;
+}
+.custom-control-label:before{
+    background-color: $myGrey;
+    border: 1px solid rgba(235,150,40,1);
+}
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: darkorange!important;
+    border: 1px solid rgba(0,0,0,.4);
+}
+.custom-checkbox .custom-control-input:checked:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25)
+}
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 0, 0, 0.25)
+}
+.custom-checkbox .custom-control-input:active ~ .custom-control-label::before {
+    background-color: $myGrey; 
+}
+
+/* AUTOCOMPLETE */
+.ui-autocomplete {
+    max-height: 200px;
+    /*max-width: 670px;*/
+    overflow-y: auto;
+    overflow-x: hidden;
+    border-radius: 5px;
+    box-shadow: $usualBlackShadow;
+    padding: 4px 4px;
+    background-color: #FFCF8C;
+}
+.ui-menu-item .ui-state-active {
+    color: #ffffff;
+    text-decoration: none;
+    background-color: gray !important;
+    border: none;
+}
+
+/* ACCORDION LINKS */
+.linksDiv a, #linksResults a {
+    color: white;
+    font-weight: 300;
+}
+.linksDiv a:hover, #linksResults a:hover {
+    color: darkorange;
+    font-weight: 400;
+    text-decoration: none;
+}
+.linksDiv {
+    margin-bottom: 3rem;
+}
+
+/* SEARCH BOX */
+#searchIcon {
+    color: white;
+}
+.hoverContent {
+    display: none;
+    color: white;
+}
+#linksSearchToggle {
+    cursor: pointer;
+    margin-top: -1.5rem; margin-right: auto; margin-left: auto;
+    margin-bottom: 1rem;
+    padding-top: .2rem;
+    width: 30px;
+    height: 30px;
+    background-color: $myGrey;
+    border-radius: 25px;
+    box-shadow: $usualBlackShadow;
+    transition: width .8s ease-out;
+    &:hover {
+        width: 100px;
+        transition: width .3s ease-out;
+    }
+    &:hover .hoverContent {
+        display: block;
+    }
+    &:hover #searchIcon {
+        display: none;
+    }
+}

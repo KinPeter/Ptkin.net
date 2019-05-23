@@ -9,11 +9,9 @@ const page = {
         {section: '#contact-section', file: 'contact.html'},
     ],
     loadAllSections() {
-        this.sections.forEach(element => {
-            page.loadHtml(element.file, element.section);
-        });
+        this.sections.forEach(element => page.loadHtml(element.section, element.file));
     },
-    loadHtml(fileName, domElement) {
+    loadHtml(domElement, fileName) {
         $.get(`./site/html/${fileName}`).done(result => $(domElement).html(result));
     }
 }

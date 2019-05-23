@@ -1,1 +1,43 @@
 /* NAVBAR */
+/* Slide in animation for navbar */
+@keyframes slideInNav {
+    0% {
+        transform: translateY(-1500%);
+        opacity: 0.5; 
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1; 
+    }
+}
+.slideInNav {
+    animation: 0.8s ease-out 0s 1 slideInNav;
+}
+.navbar {
+    box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+    @extend %nunito400;
+    .active {
+        color: orange !important;
+    }
+}
+.navbar-nav a {
+    border-bottom: 2px solid $myGrey;
+}
+.nav-link {
+    cursor: pointer;
+    &:hover {
+        border-bottom: 2px solid orange;        
+    }
+}
+.dropdown-menu {
+    background-color: $myGrey;
+    box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+    width: 200px !important;
+    padding: 1rem;
+    a {
+        color: rgb(173, 173, 173) !important;
+        &:hover {
+            color: rgb(221, 221, 221) !important;
+        }
+    }
+}

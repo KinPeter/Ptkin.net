@@ -1,1 +1,20 @@
 /* TRAVELS */
+.travelTitleRow {
+    margin: 1rem auto 1rem auto;
+    width: 100%;
+}
+.iframeTitle {
+    @extend %comfortaa-bold;
+    font-size: 1.5rem;
+    border-bottom: 2px solid $myOrange;
+    border-right: none;
+}
+.iframeDescription {
+    padding-top: .3rem;
+    padding-left: 2rem;
+}
+.travelIframe {
+    margin-bottom: 3rem;
+    border: 1px solid $myOrange;
+    box-shadow: $usualBlackShadow;
+}

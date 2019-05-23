@@ -1,1 +1,43 @@
 /* CONTACT */
+.contactWrapper {
+    h2 {
+        color: darkorange;
+    }
+    h5 {
+        @extend %nunito300;
+    }
+} 
+.ctcIcons {
+    padding-top: 1rem;
+    padding-bottom: 2rem;
+    i {
+        cursor: pointer;
+        color: white;
+        margin-right: .5rem;
+        text-shadow: $usualBlackShadow;
+        &:hover {
+            color: darkorange;
+        }
+    }
+}
+.ctcText {
+    margin-top: .5rem;
+    position: absolute;
+    left:0;
+    right:0;
+    margin-left:auto;
+    margin-right:auto;
+    font-family: $comfortaa;
+    color: darkorange;
+}
+.copyright {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    font-size: .8rem;
+    font-weight: 300;
+}
+#emailSubmit {
+    background-color: darkorange;
+    border-color: white;
+    margin-bottom: 1rem;
+}
