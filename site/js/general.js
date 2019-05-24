@@ -1,41 +1,41 @@
 //==========================================================
 //                   GENERAL BEHAVIORS
 //==========================================================
-
-//collapse the navbar after click
-$(".nav-link").not('#funProjectsLink').click(function(){
-    $(".navbar-collapse").collapse("hide");
-})
-//function to scroll to the bottom
-function scrollDown() {
-    $("html, body").animate({ scrollTop: $(document).height()-$(window).height() });
-}
-
-//pointer cursors, scroll functions
-$(".nav-link, #peters, #backToTop, #linksSearchToggle, #downloadCVtitle").hover(function() {
-    $(this).css("cursor", "pointer");
-})
-$("#homePageContactNav").click(function() {
-    scrollDown();
-})
-$("#homePageHomeNav, #peters, #backToTop").click(function() {
-    $("html, body").animate({ scrollTop: 0});
-})
-$(window).scroll(function() {
-    var scroll = $(window).scrollTop();
-    if (scroll >= 200) {
-        $("#backToTop").fadeIn(500);
-    } else {
-        $("#backToTop").fadeOut(500);
+const general = {
+    init() {
+        this.collapseNavbarListener();
+        this.contactClickListener();
+        this.toTopListener();
+        this.enterKeyListener();
+    },
+    collapseNavbarListener() {
+        //collapse the navbar after click
+        $('.nav-link').not('#funProjectsLink').click(() => $('.navbar-collapse').collapse('hide'));
+    },
+    contactClickListener() {
+        $('#homePageContactNav').click(() => general.scrollDownToBottom());
+    },
+    toTopListener() {
+        $('#homePageHomeNav, #peters, #backToTop').click(() =>$('html, body').animate({ scrollTop: 0}));
+        $(window).scroll(() => {
+            let scroll = $(window).scrollTop();
+            if (scroll >= 200) $('#backToTop').fadeIn(500);
+            else $('#backToTop').fadeOut(500);
+        });
+    },
+    enterKeyListener() {
+        /*** */
+        ////TODOOOO
+        /*** */
+        $('#passwordInput').keypress((e) => {
+            let key = e.which;
+            if (key == 13) {$('#CVSubmit').click();}
+        }); 
+    },
+    scrollDownToBottom() {
+        $('html, body').animate({ scrollTop: $(document).height()-$(window).height() });
+    },
+    scrollDown(pixels) {
+        $('html, body').animate({ scrollTop: `+=${pixels}` }, 500);
     }
-});
-
-
-
-//$(".nav-item").click(function() {
-//    $("html").fadeOut(500, function() {
-//        window.location.reload();
-//    });
-//});
-
-
+}
