@@ -7,17 +7,27 @@
 ============================================== --> 
     <div id="googleMapWrapper" class="container text-center mt-3 fadeIn">
         <div class="title">My Travels</div> 
-        <div class="row title-message-row">
-            <div class="col-md-4 text-center title-message">Cities I've visited</div>
-            <div class="col-md-8 text-left title-message-description">Here you can check out the cities and places I've already visited all over the world.</div>
+        <div class="row title-message-row travels-collapse-toggle" data-toggle="collapse" data-target="#mymap-collapse" aria-expanded="false" aria-controls="mymap-collapse">
+            <div class="col-md-3 text-center">
+                <img class="img-fluid rounded aboutImg" src="images/googlemap_small.jpg" alt="Google MyMap">
+            </div>
+            <div class="col-md-3 text-center title-message">Cities I've visited</div>
+            <div class="col-md-6 text-left title-message-description">Click here and check out the cities and places all over the world I've visited so far.</div>
         </div>
-        <iframe class="travelIframe" src="https://www.google.com/maps/d/embed?mid=1gCNBb9ATlYb-OYv_5dgHOcs3Flg&ll=50%2C70&z=2" width="100%" height="480"></iframe>
+        <div class="collapse travels-collapse" id="mymap-collapse">
+            <iframe class="travelIframe" src="https://www.google.com/maps/d/embed?mid=1gCNBb9ATlYb-OYv_5dgHOcs3Flg&ll=50%2C70&z=2" width="100%" height="480"></iframe>
+        </div>
 
-        <div class="row title-message-row">
-            <div class="col-md-4 text-center title-message">My Flight Diary</div>
-            <div class="col-md-8 text-left title-message-description">Below you can see a detailed breakdown and statistics about all the flights I've taken so far.</div>
+        <div class="row title-message-row travels-collapse-toggle" data-toggle="collapse" data-target="#flightdiary-collapse" aria-expanded="false" aria-controls="flightdiary-collapse">
+            <div class="col-md-3 text-center">
+                <img class="img-fluid rounded aboutImg" src="images/flightradar_small.jpg" alt="My FlightDiary">
+            </div>
+            <div class="col-md-3 text-center title-message">My Flight Diary</div>
+            <div class="col-md-6 text-left title-message-description">Click here for a detailed breakdown and statistics about all the flights I've taken.</div>
         </div>
-        <iframe class="travelIframe" src="https://my.flightradar24.com/kinpeter85" width="100%" height="700"></iframe>
+        <div class="collapse travels-collapse" id="flightdiary-collapse">
+            <iframe class="travelIframe" src="https://my.flightradar24.com/kinpeter85" width="100%" height="700"></iframe>
+        </div>
     </div>
     <svg class="pf-bottom-poly" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
         <polygon fill="#343A40" points="0,0 100,0 100,100"/>
