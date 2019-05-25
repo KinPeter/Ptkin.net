@@ -1,5 +1,6 @@
 //Primary domain:
-const domain = "https://www.p-kin.com"
+const domain = 'https://cors-anywhere.herokuapp.com/https://www.p-kin.com';
+// const domain = 'https://www.p-kin.com';
 
 const page = {
     sections: [
@@ -13,18 +14,28 @@ const page = {
     ],
     init() {
         this.loadAllSections().then(() => {
-            console.log('done');
+            console.log('All HTML loaded.');
             general.init();
             cv.init();
+            portfolio.init();
+            links.init();
+            autocomplete.init();
+            travels.init();
+            contact.init();
             this.hideElements();
         });
     },
     loadAllSections() {
         return new Promise(resolve => {
+            // Looping through the sections and loading them with each is a promise.
+            // Loop starts with p as an immediately self-resolving promise.
             for (let i = 0, p = Promise.resolve(); i < page.sections.length; i++) {
                 let current = page.sections[i];
+                // In each iteration p will be a new promise (loadHtml).
+                // It can go into the next iteration only when the previous promise is resolved.
                 p = p.then(() => page.loadHtml(current.section, current.file)
                 .then(() => {
+                    // when we reach the end of the list, resolve the 'parent promise'
                     if (i == page.sections.length-1) resolve();
                 }));
             }            
@@ -34,14 +45,16 @@ const page = {
         return new Promise(resolve => {
             $.get(`./site/html/${fileName}`).done(result => {
                 $(domElement).html(result);
-                console.log(domElement)
+                console.log(domElement + 'loaded.');
                 resolve();
             });
         });
     },
     hideElements() {
         //initially hide the password div
-        $(".downloadCVwrapper").hide();
-
+        $('.downloadCVwrapper').hide();
+        $('#linksWrapper').hide();
+        $('#linksMatches').hide();
+        $("#emailform").hide();
     }
 }

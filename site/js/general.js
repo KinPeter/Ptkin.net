@@ -27,6 +27,10 @@ const general = {
         /*** */
         ////TODOOOO
         /*** */
+        $('#linksInput').keypress(function (e) {
+            var key = e.which;
+            if (key == 13) {$('#linksSubmit').click(); return false;}
+        }); 
         $('#passwordInput').keypress((e) => {
             let key = e.which;
             if (key == 13) {$('#CVSubmit').click();}
