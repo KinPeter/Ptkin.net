@@ -7,8 +7,17 @@ const cv = {
         this.CVRequestListener();
     },
     togglePasswordListener() {
+        let open = false;
         $('#downloadCVtitle').click(() => {
-            $('.downloadCVwrapper').slideToggle('500', general.scrollDown(300)); 
+            $('.downloadCVwrapper').slideToggle('500', () => {
+                if (!open) {
+                    open = true;
+                    nav.scrollDown(200);   
+                } else {
+                    open = false;
+                    nav.scrollUp(200);
+                }
+            }); 
         });
     },
     CVRequestListener() {

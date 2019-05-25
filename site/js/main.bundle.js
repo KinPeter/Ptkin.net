@@ -19,7 +19,7 @@ const page = {
     init() {
         this.loadAllSections().then(() => {
             console.log('All HTML loaded.');
-            general.init();
+            nav.init();
             cv.init();
             portfolio.init();
             links.init();
@@ -55,11 +55,80 @@ const page = {
         });
     },
     hideElements() {
-        //initially hide the password div
-        $('.downloadCVwrapper').hide();
-        $('#linksWrapper').hide();
-        $('#linksMatches').hide();
-        $("#emailform").hide();
+        $('.downloadCVwrapper, #linksWrapper, #linksMatches, #emailform').hide();
+    }
+}
+
+
+/*
+* included file: ./nav.js
+*/
+
+//==========================================================
+//                   GENERAL BEHAVIORS
+//==========================================================
+const nav = {
+    init() {
+        this.collapseNavbarListener();
+        this.navbarAndLinkClickListener();
+        this.scrollSpy();
+        this.scrollListener();
+        this.toTopListener();
+        this.enterKeyListener();
+    },
+    collapseNavbarListener() {
+        $('.nav-link').not('#funProjectsLink').click(() => $('.navbar-collapse').collapse('hide'));
+    },
+    navbarAndLinkClickListener() {
+        $('#about-nav').click(() => this.scrollTo('#about-section'));
+        $('#portfolio-nav, #portfolio-link').click(() => this.scrollTo('#portfolio-section'));
+        $('#links-nav, #links-link').click(() => this.scrollTo('#links-section'));
+        $('#travels-nav, #travels-link').click(() => this.scrollTo('#travels-section'));
+        $('#cv-link').click(() => this.scrollTo('#downloadCVtitle'));
+        $('#contact-nav').click(() => this.scrollDownToBottom());
+    },
+    toTopListener() {
+        $('#peters, #backToTop').click(() =>$('html, body').animate({ scrollTop: 0}, 1000));
+        $(window).scroll(() => {
+            let scroll = $(window).scrollTop();
+            if (scroll >= 200) $('#backToTop').fadeIn(500);
+            else $('#backToTop').fadeOut(500);
+        });
+    },
+    enterKeyListener() {
+        $('#linksInput').keypress((e) => {if (e.which == 13) $('#linksSubmit').click()}); 
+        $('#passwordInput').keypress((e) => {if (e.which == 13) $('#CVSubmit').click()}); 
+    },
+    scrollDownToBottom() {
+        $('html, body').animate({ scrollTop: $(document).height()-$(window).height() }, 1000);
+    },
+    scrollDown(pixels) {
+        $('html, body').animate({ scrollTop: `+=${pixels}` }, 1000);
+    },
+    scrollUp(pixels) {
+        $('html, body').animate({ scrollTop: `-=${pixels}` }, 1000);
+    },
+    scrollTo(element) {
+        let diff = $(window).width() > 500 ? 100 : 320;
+        $('html, body').animate({ scrollTop: $(element).offset().top - diff }, 1000);
+    },
+    scrollSpy() {
+        const sections = ['#about-section', '#portfolio-section', '#links-section', '#travels-section', '#contact-section'];
+        const navs = ['#about-nav', '#portfolio-nav', '#links-nav', '#travels-nav', '#contact-nav'];
+        let currentIndex;
+        for (let i = 0; i < sections.length; i++) {
+            let diff = $(window).width() > 500 ? 120 : 340;
+            if ( $(sections[i]).offset().top - diff <= $(window).scrollTop() ||
+                // if we are at the bottom, "force it" so #contact will also work
+                $(document).height()-$(window).height() == $(window).scrollTop()) {
+                    currentIndex = i;
+            }
+        }
+        $('.nav-link').removeClass('active');
+        $(`.navbar-nav ${navs[currentIndex]}`).addClass('active');
+    },
+    scrollListener() {
+        $(window).scroll(() => this.scrollSpy());
     }
 }
 
@@ -77,8 +146,17 @@ const cv = {
         this.CVRequestListener();
     },
     togglePasswordListener() {
+        let open = false;
         $('#downloadCVtitle').click(() => {
-            $('.downloadCVwrapper').slideToggle('500', general.scrollDown(300)); 
+            $('.downloadCVwrapper').slideToggle('500', () => {
+                if (!open) {
+                    open = true;
+                    nav.scrollDown(200);   
+                } else {
+                    open = false;
+                    nav.scrollUp(200);
+                }
+            }); 
         });
     },
     CVRequestListener() {
@@ -112,57 +190,6 @@ const cv = {
 
 
 /*
-* included file: ./general.js
-*/
-
-//==========================================================
-//                   GENERAL BEHAVIORS
-//==========================================================
-const general = {
-    init() {
-        this.collapseNavbarListener();
-        this.contactClickListener();
-        this.toTopListener();
-        this.enterKeyListener();
-    },
-    collapseNavbarListener() {
-        //collapse the navbar after click
-        $('.nav-link').not('#funProjectsLink').click(() => $('.navbar-collapse').collapse('hide'));
-    },
-    contactClickListener() {
-        $('#homePageContactNav').click(() => general.scrollDownToBottom());
-    },
-    toTopListener() {
-        $('#homePageHomeNav, #peters, #backToTop').click(() =>$('html, body').animate({ scrollTop: 0}));
-        $(window).scroll(() => {
-            let scroll = $(window).scrollTop();
-            if (scroll >= 200) $('#backToTop').fadeIn(500);
-            else $('#backToTop').fadeOut(500);
-        });
-    },
-    enterKeyListener() {
-        /*** */
-        ////TODOOOO
-        /*** */
-        $('#linksInput').keypress(function (e) {
-            var key = e.which;
-            if (key == 13) {$('#linksSubmit').click(); return false;}
-        }); 
-        $('#passwordInput').keypress((e) => {
-            let key = e.which;
-            if (key == 13) {$('#CVSubmit').click();}
-        }); 
-    },
-    scrollDownToBottom() {
-        $('html, body').animate({ scrollTop: $(document).height()-$(window).height() });
-    },
-    scrollDown(pixels) {
-        $('html, body').animate({ scrollTop: `+=${pixels}` }, 500);
-    }
-}
-
-
-/*
 * included file: ./portfolio.js
 */
 
@@ -173,8 +200,8 @@ const portfolio = {
     init() {
         this.animateArrows();
     },
-    setArrow: (id) => $(id).css({'color':'white' , 'transform' : 'scale(1, 0.9)'}),
-    resetArrow: (id) => $(id).css({'color':'orange' , 'transform' : 'scale(1, 0.7)'}),
+    setArrow: (id) => $(id).css({'color':'white' , 'transform' : 'scale(1, 1)'}),
+    resetArrow: (id) => $(id).css({'color':'darkorange' , 'transform' : 'scale(1, 0.7)'}),
     animateArrows() {
         this.setArrow('#pf-arrow-1');
         setTimeout(() => {
@@ -199,9 +226,9 @@ const portfolio = {
 * included file: ./autocomplete.js
 */
 
-/****************************************************
-*                   AUTOCOMPLETE
-*/
+//==========================================================
+//                  AUTOCOMPLETE
+//==========================================================
 const autocomplete = {
     init() {
         this.preLoad();
@@ -351,7 +378,7 @@ const contact = {
         $('#emailBtn').click(() => { 
             if ($('#emailform').css('display') == 'none') {
                 $('#emailform').fadeIn(500);
-                general.scrollDownToBottom();
+                nav.scrollDownToBottom();
             } else {
                 $('#emailform').fadeOut(500);
                 $('html, body').animate({ scrollTop: $(document).height()-$(window).height()-$('#emailform').height() });
@@ -375,7 +402,7 @@ const contact = {
         }
         if (emailError != '') {
             $('#emailError').html(`<div class="alert alert-danger text-left" role="alert"><p><strong>There were error(s) in your form:</strong><br>${emailError}</p></div>`);
-            general.scrollDownToBottom();
+            nav.scrollDownToBottom();
             return false;
         } else {
             //if there is no error, attempt to send the email
@@ -394,12 +421,12 @@ const contact = {
             },
             success: function(){
                 $('#emailError').html('<div class="alert alert-success text-left" role="alert">Your e-mail was sent successfully!</div>');
-                general.scrollDownToBottom();
+                nav.scrollDownToBottom();
             },
             async: 'false',
             error: function(){
                 $('#emailError').html('<div class="alert alert-danger text-left" role="alert">There was an error. Your e-mail could not be sent.</div>');
-                general.scrollDownToBottom();
+                nav.scrollDownToBottom();
             }
         });
     }
@@ -410,6 +437,6 @@ const contact = {
 * MAIN file:
 */
 
-/*@include: ./pageloader.js, ./cv.js, ./general.js, ./portfolio.js, ./autocomplete.js, ./links.js, travels.js, ./contact.js @end*/
+/*@include: ./pageloader.js, ./nav.js, ./cv.js, ./portfolio.js, ./autocomplete.js, ./links.js, travels.js, ./contact.js @end*/
 
 page.init();

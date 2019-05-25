@@ -15,7 +15,7 @@ const page = {
     init() {
         this.loadAllSections().then(() => {
             console.log('All HTML loaded.');
-            general.init();
+            nav.init();
             cv.init();
             portfolio.init();
             links.init();
@@ -51,10 +51,6 @@ const page = {
         });
     },
     hideElements() {
-        //initially hide the password div
-        $('.downloadCVwrapper').hide();
-        $('#linksWrapper').hide();
-        $('#linksMatches').hide();
-        $("#emailform").hide();
+        $('.downloadCVwrapper, #linksWrapper, #linksMatches, #emailform').hide();
     }
 }

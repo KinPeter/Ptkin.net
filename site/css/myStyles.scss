@@ -4,6 +4,7 @@ $damion: 'Damion', cursive !important;
 
 $myGrey: #343A40;
 $myOrange: rgb(235,150,40);
+$almostWhite: rgba(255,255,255,.8);
 
 $usualBlackShadow: 5px 5px 10px rgba(0,0,0,0.5);
 
@@ -18,6 +19,13 @@ $usualBlackShadow: 5px 5px 10px rgba(0,0,0,0.5);
 %nunito400 {
     font-family: $nunito;
     font-weight: 400;
+}
+%pfLink {
+    font-weight: bold;
+    color: darkorange;
+}
+%pfLinkHover {
+    color: $almostWhite;
 }
 
 /*==========================================================
@@ -47,13 +55,62 @@ body {
     border-bottom: 3px solid $myOrange;
     margin-bottom: 2rem;
 }
+.title-message-row {
+    margin: 1rem auto 1rem auto;
+    width: 100%;
+    .title-message {
+        @extend %comfortaa-bold;
+        font-size: 1.5rem;
+        border-bottom: 2px solid $myOrange;
+        border-right: none;
+    }
+    .title-message-description {
+        padding-top: .3rem;
+        padding-left: 2rem;
+        text-align: justify !important;
+    }
+    a {
+        @extend %pfLink;
+        &:hover {
+            @extend %pfLinkHover;
+        }
+    }
+}
 
 /* Text styles */
-h5, h4, h3, h2, h1 {
+h5, h4, h3, h2, h1, .comf-bold {
     @extend %comfortaa-bold;
 }
 p {
     @extend %nunito300;
+}
+
+
+/*************************************************
+*                   DARK DIVS 
+*/
+.pf-bg-dark {
+    position: relative;
+    padding-left: 0 !important;
+    box-shadow: 0 5px 10px 2px rgba(200,100,0,0.5);
+    margin-bottom: 10rem;
+    margin-top: 7rem;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+    color: $almostWhite;
+    .badge {
+        color: $myGrey;
+        background-color: darkorange;
+    }
+    h4 {
+        font-weight: 300;
+    }
+    .title {
+        border-bottom: 3px solid darkorange;
+    }
+}
+.pf-bg-dark h4, .pf-bg-dark p, .pf-bg-dark .pf-feature, .pf-bg-dark .title {
+    color: $almostWhite;
 }
 
 
@@ -132,7 +189,7 @@ p {
     .welcomeP {
         font-size: 1.2rem;
     }
-    .iframeTitle, .smallTitle {
+    .title-message-row .title-message, .smallTitle {
         border-right: 2px solid rgb(235,150,40);
         border-bottom: none;
     }

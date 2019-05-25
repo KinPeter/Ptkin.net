@@ -23,7 +23,7 @@ const contact = {
         $('#emailBtn').click(() => { 
             if ($('#emailform').css('display') == 'none') {
                 $('#emailform').fadeIn(500);
-                general.scrollDownToBottom();
+                nav.scrollDownToBottom();
             } else {
                 $('#emailform').fadeOut(500);
                 $('html, body').animate({ scrollTop: $(document).height()-$(window).height()-$('#emailform').height() });
@@ -47,7 +47,7 @@ const contact = {
         }
         if (emailError != '') {
             $('#emailError').html(`<div class="alert alert-danger text-left" role="alert"><p><strong>There were error(s) in your form:</strong><br>${emailError}</p></div>`);
-            general.scrollDownToBottom();
+            nav.scrollDownToBottom();
             return false;
         } else {
             //if there is no error, attempt to send the email
@@ -66,12 +66,12 @@ const contact = {
             },
             success: function(){
                 $('#emailError').html('<div class="alert alert-success text-left" role="alert">Your e-mail was sent successfully!</div>');
-                general.scrollDownToBottom();
+                nav.scrollDownToBottom();
             },
             async: 'false',
             error: function(){
                 $('#emailError').html('<div class="alert alert-danger text-left" role="alert">There was an error. Your e-mail could not be sent.</div>');
-                general.scrollDownToBottom();
+                nav.scrollDownToBottom();
             }
         });
     }

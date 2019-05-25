@@ -1,38 +1,7 @@
 /* PORTFOLIO */
-%pfLink {
-    font-weight: bold;
-    color: darkorange;
-}
-%pfLinkHover {
-    color: $myGrey;
-}
-.subTitleRow {
-    margin: 1rem auto 3rem auto;
-    width: 100%;
-    a {
-        @extend %pfLink;
-        &:hover {
-            @extend %pfLinkHover;
-        }
-    }
-    .subTitle {
-        @extend %comfortaa-bold;
-        font-size: 1.5rem;
-        border-bottom: 2px solid $myOrange;
-        border-right: none;
-        @media (min-width: 768px) { 
-            border-right: 2px solid rgb(235,150,40);
-            border-bottom: none;
-        }
-    }
-    .subDescription {
-        padding-top: .3rem;
-        padding-left: 2rem;
-        text-align: justify !important;
-    }
-}
 #pf-arrows {
     margin-bottom: 5rem;
+    text-shadow: $usualBlackShadow;
     i {
         display: block;
         margin: -2rem auto;
@@ -40,12 +9,14 @@
     }
     #pf-lets-check {
         font-family: $damion;
+        color: darkorange;
         font-size: 2.5rem;
         margin: 1rem auto 2rem auto;
     }
 }
 .pf-div {
     text-align: justify;
+    margin-bottom: 2rem;
     h4 {
         border-bottom: 2px solid $myOrange;
     }
@@ -81,29 +52,3 @@
     }
 }
 
-/*************************************************
-*                   DARK DIVS 
-*/
-.pf-bg-dark {
-    position: relative;
-    padding-left: 0 !important;
-    box-shadow: 0 5px 10px 2px rgba(200,100,0,0.5);
-    margin-bottom: 7rem;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-    .badge {
-        color: $myGrey;
-        background-color: darkorange;
-    }
-    h4 {
-        font-weight: 300;
-    }
-}
-.pf-bg-dark h4, .pf-bg-dark p, .pf-bg-dark .pf-feature {
-    color: white;
-}
-
-
-#startpage-notes {
-    max-height: 200px;
-}

@@ -6,7 +6,7 @@ const portfolio = {
         this.animateArrows();
     },
     setArrow: (id) => $(id).css({'color':'white' , 'transform' : 'scale(1, 1)'}),
-    resetArrow: (id) => $(id).css({'color':'orange' , 'transform' : 'scale(1, 0.7)'}),
+    resetArrow: (id) => $(id).css({'color':'darkorange' , 'transform' : 'scale(1, 0.7)'}),
     animateArrows() {
         this.setArrow('#pf-arrow-1');
         setTimeout(() => {
