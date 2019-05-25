@@ -226,6 +226,12 @@ const portfolio = {
         }, 1000)
     }
 }
+/*
+no-boostrap, plain jquery
+hide details --> on click : animate enlarge pic, toggle content 
+(like links search box)
+use this.hasclass(show) : add/removeclass(show) or something like that
+*/
 
 
 /*
@@ -348,11 +354,51 @@ const links = {
 //                   TRAVELS SCRIPTS
 //==========================================================
 const travels = {
-    // TODO
     init() {
+        this.collapseToggleListener();
+    },
+    collapseToggleListener() {
+        $('.travels-collapse-toggle').click(function() {
+            console.log('hello')
+            let image = $(this).children().closest('div').find('img').attr('id');
+            let collapse = $(this).siblings().closest('.collapse');
+            if (collapse.hasClass('show')) {
+                travels.scaleImage(image, 'enlarge', 2);
+            } else {
+                travels.scaleImage(image, 'shrink', 2);
+            }
+
+
+
+        });
+    },
+    scaleImage(image, method, factor) {
+        const newSize = method == 'shrink' ? $(`#${image}`).width() / factor : $(`#${image}`).width() * factor;
+        $(`#${image}`).animate({ width: newSize });
+    },
+    enlargeImage(image) {
         
+        
+    },
+    shrinkImage(image) {
+        const factor = 2;
+        $(`#${image}`).animate({
+            width: $(`#${image}`).width() / factor
+        });
     }
 }
+
+/**
+var factor = 1.5;
+
+$('#imgid').click(function() {
+    $(this).animate({
+        top: '-=' + $(this).height() / factor,
+        left: '-=' + $(this).width() / factor,
+        width: $(this).width() * factor
+    });
+});
+ */
 
 
 /*

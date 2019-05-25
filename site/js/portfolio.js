@@ -25,3 +25,9 @@ const portfolio = {
         }, 1000)
     }
 }
+/*
+no-boostrap, plain jquery
+hide details --> on click : animate enlarge pic, toggle content 
+(like links search box)
+use this.hasclass(show) : add/removeclass(show) or something like that
+*/

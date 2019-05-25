@@ -7,6 +7,21 @@
 
 .travels-collapse-toggle {
     cursor: pointer;
+    display: flex;
+    align-items: flex-start;
+    &:hover {
+        .title-link{
+            color: darkorange;
+        }
+        img {
+            box-shadow: 0 5px 10px 2px rgba(255,140,0,0.5);
+        }
+    }
+    .title-message, .title-message-description {
+        margin-top: 1rem;
+        padding-top: .5rem;
+        padding-bottom: .5rem;
+    }
 }
 
 .travels-collapse {
