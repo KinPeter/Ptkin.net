@@ -26,7 +26,7 @@ const page = {
             autocomplete.init();
             travels.init();
             contact.init();
-            this.hideElements();
+            this.hideElements();            
         });
     },
     loadAllSections() {
@@ -56,6 +56,8 @@ const page = {
     },
     hideElements() {
         $('.downloadCVwrapper, #linksWrapper, #linksMatches, #emailform').hide();
+        $('#loading-screen').fadeOut(500);
+        nav.addStickyNavbar();
     }
 }
 
@@ -98,6 +100,10 @@ const nav = {
     enterKeyListener() {
         $('#linksInput').keypress((e) => {if (e.which == 13) $('#linksSubmit').click()}); 
         $('#passwordInput').keypress((e) => {if (e.which == 13) $('#CVSubmit').click()}); 
+    },
+    addStickyNavbar() {
+        setTimeout(() => {$('#navbar-section').addClass('sticky-top');}, 1000);
+        
     },
     scrollDownToBottom() {
         $('html, body').animate({ scrollTop: $(document).height()-$(window).height() }, 1000);
@@ -439,4 +445,6 @@ const contact = {
 
 /*@include: ./pageloader.js, ./nav.js, ./cv.js, ./portfolio.js, ./autocomplete.js, ./links.js, travels.js, ./contact.js @end*/
 
-page.init();
+$(document).ready(() => {
+    page.init();
+})

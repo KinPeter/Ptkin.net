@@ -22,7 +22,7 @@ const page = {
             autocomplete.init();
             travels.init();
             contact.init();
-            this.hideElements();
+            this.hideElements();            
         });
     },
     loadAllSections() {
@@ -52,5 +52,7 @@ const page = {
     },
     hideElements() {
         $('.downloadCVwrapper, #linksWrapper, #linksMatches, #emailform').hide();
+        $('#loading-screen').fadeOut(500);
+        nav.addStickyNavbar();
     }
 }

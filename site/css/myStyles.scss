@@ -31,7 +31,6 @@ $usualBlackShadow: 5px 5px 10px rgba(0,0,0,0.5);
 /*==========================================================
 //                    GENERAL STYLES
 //========================================================*/
-
 body {
     background-image: url(../../images/full-bloom.png);
     @extend %nunito300;
@@ -158,6 +157,7 @@ p {
 //                    IMPORT PARTIALS
 //========================================================*/
 
+@import "loadingscreen";
 @import "navbar";
 @import "carousel";
 @import "aboutme";

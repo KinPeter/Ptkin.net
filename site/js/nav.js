@@ -33,6 +33,10 @@ const nav = {
         $('#linksInput').keypress((e) => {if (e.which == 13) $('#linksSubmit').click()}); 
         $('#passwordInput').keypress((e) => {if (e.which == 13) $('#CVSubmit').click()}); 
     },
+    addStickyNavbar() {
+        setTimeout(() => {$('#navbar-section').addClass('sticky-top');}, 1000);
+        
+    },
     scrollDownToBottom() {
         $('html, body').animate({ scrollTop: $(document).height()-$(window).height() }, 1000);
     },
