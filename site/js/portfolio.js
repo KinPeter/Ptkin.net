@@ -2,8 +2,11 @@
 //                   PORTFOLIO SCRIPTS
 //==========================================================
 const portfolio = {
+    items: [],
+
     init() {
         this.animateArrows();
+        this.appendItemsToHtml();
         this.showDetailsToggleListener();
     },
     setArrow: (id) => $(id).css({'color':'white' , 'transform' : 'scale(1, 1)'}),
@@ -52,10 +55,63 @@ const portfolio = {
             collapse.toggle('slow');
         });
     },
+    appendItemsToHtml() {
+        this.items.forEach(item => {
+            let html = this.composeHtml(item);
+            $('#portfolio-items').append(html);
+        });
+    },
+    composeHtml(item) {
+        let html = "";
+        // add starting parts
+        html = html.concat( this.addTitleRow(item.name, item.descr) );
+        // iterate through badges
+        item.badges.forEach(badge => html = html.concat( this.addBadge(badge) ));
+        // add part between badges and features
+        html = html.concat( this.addFeaturesStart() ); 
+        // iterate through features
+        item.features.forEach(feature => html = html.concat( this.addFeature(feature.title, feature.text) ));
+        // add image and finish html
+        html = html.concat( this.addImageAndEndings(item.image, item.imageid, item.name) );
+        return html;
+    },
+    addTitleRow(name, descr) {
+        return  `
+        <div class="container fadeIn"> 
+            <div class="row">
+                <div class="col-md-9 pf-div pf-text-div">
+                    <div class="pf-title-row">
+                        <h4 class="pf-name">${name}</h4>
+                        <p class="pf-desc">${descr}</p>
+                    </div>
+                    <div class="pf-details">
+                        <div class="pf-badges">
+        `;
+    },
+    addBadge(badge) {
+        return `<span class="badge">${badge}</span>`;
+    },
+    addFeaturesStart() {
+        return `</div>
+                <div class="pf-features">`;
+    },
+    addFeature(name, descr) {
+        return `
+        <div class="pf-feature"><i class="fas fa-thumbs-up"></i>${name}</div>
+        <p>${descr}</p>
+        `;
+    },
+    addImageAndEndings(path, id, alt) {
+        return `
+                        </div>
+                    </div>
+                </div>      
+                <div class="col-md-3 pf-div pf-img-div text-right">
+                    <img src="${path}" alt="${alt}" class="rounded pf-img" id="${id}">
+                </div>
+            </div>
+        </div>
+        `;
+    },
+
 }
-/*
-no-boostrap, plain jquery
-hide details --> on click : animate enlarge pic, toggle content 
-(like links search box)
-use this.hasclass(show) : add/removeclass(show) or something like that
-*/

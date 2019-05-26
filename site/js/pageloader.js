@@ -14,15 +14,17 @@ const page = {
     ],
     init() {
         this.loadAllSections().then(() => {
-            console.log('All HTML loaded.');
-            nav.init();
-            cv.init();
-            portfolio.init();
-            links.init();
-            autocomplete.init();
-            travels.init();
-            contact.init();
-            this.hideElements();            
+            this.loadPortfolioJson().then(() => {
+                console.log('All HTML loaded.');
+                nav.init();
+                cv.init();
+                portfolio.init();
+                links.init();
+                autocomplete.init();
+                travels.init();
+                contact.init();
+                this.hideElements(); 
+            });                       
         });
     },
     loadAllSections() {
@@ -46,6 +48,15 @@ const page = {
             $.get(`./site/html/${fileName}`).done(result => {
                 $(domElement).html(result);
                 console.log(domElement + ' loaded.');
+                resolve();
+            });
+        });
+    },
+    loadPortfolioJson() {
+        return new Promise(resolve => {
+            $.get(`./site/json/portfolio.json`).done(result => {
+                portfolio.items = result;
+                console.log('Portfolio items loaded.')
                 resolve();
             });
         });
