@@ -5,7 +5,7 @@ const links = {
     init() {
         //show 'loading' while ajax call in progress
         $('.list-group').html('<li class="list-group-item">loading...</li>');
-        this.fillAllLists();
+        // this.fillAllLists();
         this.searchToggleListener();
         this.searchButtonListener();
     },

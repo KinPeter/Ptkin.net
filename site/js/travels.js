@@ -8,7 +8,7 @@ const travels = {
     collapseToggleListener() {
         $('.travels-collapse-toggle').click(function() {
             let image = $(this).children().closest('div').find('img').attr('id');
-            let collapse = $(this).siblings().closest('.collapse');
+            let collapse = $(this).next('.collapse');
             if (collapse.hasClass('show')) {
                 travels.scaleImage(image, 'enlarge', 2);
             } else {

@@ -11,7 +11,11 @@
         font-family: $damion;
         color: darkorange;
         font-size: 2.5rem;
-        margin: 1rem auto 2rem auto;
+        margin: 1rem auto 0 auto;
+    }
+    p {
+        margin: 0 auto 2rem auto;
+
     }
 }
 .pf-div {
@@ -26,29 +30,44 @@
             @extend %pfLinkHover;
         }
     }
-    .pf-img {
-        margin-bottom: 1.5rem;
-        box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+    .pf-title-row {
+        cursor: pointer;
+        padding: .5rem;
+        &:hover {
+            .pf-name {
+                color: darkorange;
+            }
+            background-color: rgba(255,255,255,.05);
+        }
+        .pf-desc {
+            margin-top: .5rem;
+        }
     }
-    .pf-desc {
-        margin-top: 1rem;
+    .pf-img {            
+            width: 100%;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+        }
+    .pf-img-div {        
+        @media (min-width: 768px) {
+            text-align: right !important;
+        }
     }
-    .pf-feature {
-        @extend %comfortaa-bold;
-        i {
-            margin-right: .5rem;
-            color: darkorange;
+    
+
+    .pf-details {
+        display: none;
+        .pf-badges {
+            margin-bottom: 1rem;
+        }
+        .pf-feature {
+            @extend %comfortaa-bold;
+            i {
+                margin-right: .5rem;
+                color: darkorange;
+            }
         }
     }
 }
 
-/*************************************************
-*                  LIGHT DIVS 
-*/
-.pf-bg-light {
-    margin-bottom: 5rem;
-    .badge {
-        color: orange;
-    }
-}
 

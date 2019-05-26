@@ -45,7 +45,7 @@ const page = {
         return new Promise(resolve => {
             $.get(`./site/html/${fileName}`).done(result => {
                 $(domElement).html(result);
-                console.log(domElement + 'loaded.');
+                console.log(domElement + ' loaded.');
                 resolve();
             });
         });

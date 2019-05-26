@@ -49,7 +49,7 @@ const page = {
         return new Promise(resolve => {
             $.get(`./site/html/${fileName}`).done(result => {
                 $(domElement).html(result);
-                console.log(domElement + 'loaded.');
+                console.log(domElement + ' loaded.');
                 resolve();
             });
         });
@@ -205,6 +205,7 @@ const cv = {
 const portfolio = {
     init() {
         this.animateArrows();
+        this.showDetailsToggleListener();
     },
     setArrow: (id) => $(id).css({'color':'white' , 'transform' : 'scale(1, 1)'}),
     resetArrow: (id) => $(id).css({'color':'darkorange' , 'transform' : 'scale(1, 0.7)'}),
@@ -224,7 +225,44 @@ const portfolio = {
         setTimeout(() => {
             return this.animateArrows();
         }, 1000)
-    }
+    },
+    showDetailsToggleListener() {        
+        $('.pf-title-row').click(function() {
+            let collapse = $(this).next('.pf-details'); 
+            let myDiv = $(this).parent();
+            let imageDiv = $(this).parent().next('.pf-img-div');
+            let image = imageDiv.find('img');
+
+            if ($(window).width() > 768) {
+                if (collapse.hasClass('expanded')) {
+                    collapse.removeClass('expanded');
+                    // image.fadeOut(500, 'easeOutCubic', () => {
+                    //     myDiv.removeClass('col-md-6').addClass('col-md-9');
+                    //     imageDiv.removeClass('col-md-6').addClass('col-md-3');
+                    //     image.fadeIn(500, 'easeOutCubic');
+                    // })
+                    image.animate({width: '20%', opacity: .05}, 500, 'easeOutCubic', () => {
+                        myDiv.removeClass('col-md-6').addClass('col-md-9');
+                        imageDiv.removeClass('col-md-6').addClass('col-md-3');
+                        image.animate({width: '100%', opacity: 1}, 500, 'easeInCubic');
+                    })
+                    
+                    
+                } else {
+                    collapse.addClass('expanded');
+                    image.animate({width: '20%', opacity: .05}, 500, 'easeOutCubic', () => {
+                        myDiv.removeClass('col-md-9').addClass('col-md-6');
+                        imageDiv.removeClass('col-md-3').addClass('col-md-6');
+                        image.animate({width: '100%', opacity: 1}, 500, 'easeInCubic');
+                    })
+                    
+                }
+
+
+            }
+            collapse.toggle('slow');
+        });
+    },
 }
 /*
 no-boostrap, plain jquery
@@ -243,7 +281,7 @@ use this.hasclass(show) : add/removeclass(show) or something like that
 //==========================================================
 const autocomplete = {
     init() {
-        this.preLoad();
+        // this.preLoad();
         this.toggleListener();
         //set max width of autocomplete field depending on input field
         $('.ui-autocomplete').css('max-width', $('#linksInput').width() + 25);
@@ -281,7 +319,7 @@ const links = {
     init() {
         //show 'loading' while ajax call in progress
         $('.list-group').html('<li class="list-group-item">loading...</li>');
-        this.fillAllLists();
+        // this.fillAllLists();
         this.searchToggleListener();
         this.searchButtonListener();
     },
@@ -359,46 +397,20 @@ const travels = {
     },
     collapseToggleListener() {
         $('.travels-collapse-toggle').click(function() {
-            console.log('hello')
             let image = $(this).children().closest('div').find('img').attr('id');
-            let collapse = $(this).siblings().closest('.collapse');
+            let collapse = $(this).next('.collapse');
             if (collapse.hasClass('show')) {
                 travels.scaleImage(image, 'enlarge', 2);
             } else {
                 travels.scaleImage(image, 'shrink', 2);
             }
-
-
-
         });
     },
     scaleImage(image, method, factor) {
         const newSize = method == 'shrink' ? $(`#${image}`).width() / factor : $(`#${image}`).width() * factor;
         $(`#${image}`).animate({ width: newSize });
-    },
-    enlargeImage(image) {
-        
-        
-    },
-    shrinkImage(image) {
-        const factor = 2;
-        $(`#${image}`).animate({
-            width: $(`#${image}`).width() / factor
-        });
     }
 }
-
-/**
-var factor = 1.5;
-
-$('#imgid').click(function() {
-    $(this).animate({
-        top: '-=' + $(this).height() / factor,
-        left: '-=' + $(this).width() / factor,
-        width: $(this).width() * factor
-    });
-});
- */
 
 
 /*

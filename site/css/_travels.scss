@@ -4,7 +4,16 @@
     border: 1px solid $myOrange;
     box-shadow: $usualBlackShadow;
 }
-
+.travels-description {
+    text-align: justify;
+    padding: 0 1rem;
+    margin-bottom: 3rem;
+    i {
+        color: darkorange;
+        margin-top: .5rem;
+        margin-right: .5rem;
+    }
+}
 .travels-collapse-toggle {
     cursor: pointer;
     display: flex;
