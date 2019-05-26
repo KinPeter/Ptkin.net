@@ -26,7 +26,7 @@
 {
     "name":"CountDowns web app",
     "badges":["JavaScript", "JQuery", "HTML5", "CSS", "Bootstrap"],
-    "descr":"As I wanted to practice using cookies and localStorage I created a tiny web application for managing countdown timers.<a href=\"https://countdowns.p-kin.com\" target=\"_blank\">Try it now!</a>",
+    "descr":"As I wanted to practice using cookies and localStorage I created a tiny web application for managing countdown timers. <a href=\"https://countdowns.p-kin.com\" target=\"_blank\">Try it now!</a>",
     "features":[
         {
             "title":"User Account management",

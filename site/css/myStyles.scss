@@ -1,6 +1,6 @@
 /*
-from Hompage>
-sass --watch --style=compressed site/css:site/css
+from Hompage/
+> sass --watch --style=compressed site/css:site/css
 */
 
 $nunito: 'Nunito', sans-serif;
@@ -80,8 +80,6 @@ body {
         }
     }
 }
-
-/* Text styles */
 h5, h4, h3, h2, h1, .comf-bold {
     @extend %comfortaa-bold;
 }

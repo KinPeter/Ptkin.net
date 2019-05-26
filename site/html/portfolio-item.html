@@ -1,35 +1,61 @@
 <!-- =============================================
-                  PORTFOLIO ITEM
+            PORTFOLIO ITEM EMPTY
 ============================================== --> 
 <div class="container fadeIn"> 
     <div class="row">
         <div class="col-md-9 pf-div pf-text-div">
             <div class="pf-title-row">
-                <h4 class="pf-name">VocabCards web app</h4>
-                <p class="pf-desc"> Mobile-friendly web app to practice Korean words from my wordlist, using flashcards.</p>
+                <h4 class="pf-name">${name}</h4>
+                <div class="pf-badges">
+                    <span class="badge">${badge}</span>
+                </div>
+                <p class="pf-desc">${descr}</p>
             </div>
             <div class="pf-details">
-                <div class="pf-badges">
-                    <span class="badge">JavaScript</span>
-                    <span class="badge">jQuery</span>
-                    <span class="badge">HTML</span>
-                    <span class="badge">CSS</span>
-                    <span class="badge">PHP</span>
-                </div>
                 <div class="pf-features">
-                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Data from Google Sheet</div>
-                    <p>The app downloads the wordlist file directly from a published Google Sheet in TSV format which is then easily parsed by JavaScript.</p>
-                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Progress saved on server</div>
-                    <p>The progress is saved in a JSON file on the server using arrays to store the indexes of the words.</p>
-                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Difficult Words</div>
-                    <p>If a choice is not correct, the word goes into a separate array so the user can review those words later again.</p>
-                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Random, with a twist</div>
-                    <p>The cards are picked randomly, but the different choices are programmed not to be so easy if possible - in case there are similar words in the list.</p>                    
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>${name}</div>
+                    <p>${descr}</p>
                 </div>
             </div>
         </div>      
         <div class="col-md-3 pf-div pf-img-div text-right">
-            <img src="./images/portfolio/vocabcards.jpg" alt="VocabCards web app" class="rounded pf-img" id="vocabcards-img">
+            <img src="${path}" alt="${alt}" class="rounded pf-img" id="${id}">
+        </div>
+    </div>
+</div>
+
+<!-- =============================================
+            PORTFOLIO ITEM FILLED
+============================================== --> 
+<div class="container fadeIn"> 
+    <div class="row">
+        <div class="pf-div pf-text-div col-md-9">
+            <div class="pf-title-row">
+                <h4 class="pf-name">VocabCards web app</h4>
+                <div class="pf-badges">        
+                    <span class="badge">JavaScript</span>        
+                    <span class="badge">JQuery</span>        
+                    <span class="badge">HTML</span>        
+                    <span class="badge">CSS</span>        
+                    <span class="badge">PHP</span>            
+                </div>
+                <p class="pf-desc">Mobile-friendly web app to practice Korean words from my wordlist, using flashcards.</p>
+            </div>
+            <div class="pf-details">
+                <div class="pf-features">        
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Data from Google Sheet</div>
+                    <p>The app downloads the wordlist file directly from a published Google Sheet in TSV format which is then easily parsed by JavaScript.</p>        
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Progress saved on server</div>
+                    <p>The progress is saved in a JSON file on the server using arrays to store the indexes of the words.</p>        
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Difficult Words</div>
+                    <p>If a choice is not correct, the word goes into a separate array so the user can review those words later again.</p>        
+                    <div class="pf-feature"><i class="fas fa-thumbs-up"></i>Random, with a twist</div>
+                    <p>The cards are picked randomly, but the different choices are programmed not to be so easy if possible - in case there are similar words in the list.</p>        
+                </div>
+            </div>
+        </div>      
+        <div class="pf-div pf-img-div text-right col-md-3">
+            <img src="./images/portfolio/vocabcards.jpg" alt="VocabCards web app" class="rounded pf-img" id="vocabcards-img" style="display: inline-block; width: 100%; opacity: 1;">
         </div>
     </div>
 </div>

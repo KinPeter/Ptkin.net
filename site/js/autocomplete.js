@@ -3,7 +3,7 @@
 //==========================================================
 const autocomplete = {
     init() {
-        // this.preLoad();
+        this.preLoad();
         this.toggleListener();
         //set max width of autocomplete field depending on input field
         $('.ui-autocomplete').css('max-width', $('#linksInput').width() + 25);

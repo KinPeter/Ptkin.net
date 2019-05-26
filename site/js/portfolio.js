@@ -3,7 +3,6 @@
 //==========================================================
 const portfolio = {
     items: [],
-
     init() {
         this.animateArrows();
         this.appendItemsToHtml();
@@ -64,54 +63,31 @@ const portfolio = {
     composeHtml(item) {
         let html = "";
         // add starting parts
-        html = html.concat( this.addTitleRow(item.name, item.descr) );
+        html = html.concat( this.addTitleRow(item.name) );
         // iterate through badges
         item.badges.forEach(badge => html = html.concat( this.addBadge(badge) ));
         // add part between badges and features
-        html = html.concat( this.addFeaturesStart() ); 
+        html = html.concat( this.addDescription(item.descr) ); 
         // iterate through features
         item.features.forEach(feature => html = html.concat( this.addFeature(feature.title, feature.text) ));
         // add image and finish html
         html = html.concat( this.addImageAndEndings(item.image, item.imageid, item.name) );
         return html;
     },
-    addTitleRow(name, descr) {
-        return  `
-        <div class="container fadeIn"> 
-            <div class="row">
-                <div class="col-md-9 pf-div pf-text-div">
-                    <div class="pf-title-row">
-                        <h4 class="pf-name">${name}</h4>
-                        <p class="pf-desc">${descr}</p>
-                    </div>
-                    <div class="pf-details">
-                        <div class="pf-badges">
-        `;
+    addTitleRow(name) {
+        return `<div class="container fadeIn"><div class="row"><div class="col-md-9 pf-div pf-text-div"><div class="pf-title-row"><h4 class="pf-name">${name}</h4><div class="pf-badges">`;
     },
-    addBadge(badge) {
+    addBadge(badge) { 
         return `<span class="badge">${badge}</span>`;
     },
-    addFeaturesStart() {
-        return `</div>
-                <div class="pf-features">`;
+    addDescription(descr) {
+        return `</div><p class="pf-desc">${descr}</p></div><div class="pf-details"><div class="pf-features">`;
     },
     addFeature(name, descr) {
-        return `
-        <div class="pf-feature"><i class="fas fa-thumbs-up"></i>${name}</div>
-        <p>${descr}</p>
-        `;
+        return `<div class="pf-feature"><i class="fas fa-thumbs-up"></i>${name}</div>
+        <p>${descr}</p>`;
     },
     addImageAndEndings(path, id, alt) {
-        return `
-                        </div>
-                    </div>
-                </div>      
-                <div class="col-md-3 pf-div pf-img-div text-right">
-                    <img src="${path}" alt="${alt}" class="rounded pf-img" id="${id}">
-                </div>
-            </div>
-        </div>
-        `;
-    },
-
+        return `</div></div></div><div class="col-md-3 pf-div pf-img-div text-right"><img src="${path}" alt="${alt}" class="rounded pf-img" id="${id}"></div></div></div>`;
+    }
 }

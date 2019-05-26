@@ -42,6 +42,9 @@
         .pf-desc {
             margin-top: .5rem;
         }
+        .badge {
+            margin-right: .2rem;
+        }
     }
     .pf-img {            
             width: 100%;
@@ -52,14 +55,11 @@
         @media (min-width: 768px) {
             text-align: right !important;
         }
-    }
-    
-
+    }   
     .pf-details {
         display: none;
-        .pf-badges {
-            margin-bottom: 1rem;
-        }
+        padding: .5rem;
+        
         .pf-feature {
             @extend %comfortaa-bold;
             i {
