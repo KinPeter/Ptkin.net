@@ -49,7 +49,8 @@
     .pf-img {            
             width: 100%;
             margin-bottom: 1.5rem;
-            box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6));
+            // box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
         }
     .pf-img-div {        
         @media (min-width: 768px) {
