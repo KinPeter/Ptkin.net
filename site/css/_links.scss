@@ -1,8 +1,38 @@
 /* LINKS */
-#linksWrapper {
+#linksWrapper{
     max-width: 700px;
     margin-bottom: 5rem;
 }
+
+.tag-buttons {
+    margin: 3rem auto 2rem auto;
+}
+.tag-button {
+    cursor: pointer;
+    background: linear-gradient(150deg, orange 0%, rgb(212, 123, 14) 100%);
+    padding: .2rem .5rem;
+    font-size: .8rem;
+    margin: .2rem;
+    box-shadow: $usualBlackShadow;
+    @extend %comfortaa-bold;
+    text-shadow: none;
+    border: 1px solid $myGrey;
+    border-radius: 5px;
+    &:hover {
+        background: linear-gradient(150deg, orange 50%, rgb(194, 107, 0) 100%);
+    }
+    @media (min-width: 576px) { 
+        padding: .5rem 1rem;
+        font-size: 1rem;
+        text-shadow: 1px 2px 4px rgba(0,0,0,0.3);
+    }
+}
+
+#tags-matches {
+    max-width: 700px;
+    margin: 3rem auto;
+}
+
 #linksInput, #passwordInput {
     box-shadow: $usualBlackShadow;
     border: 1px solid rgba(235,150,40,.4);
@@ -83,14 +113,14 @@
 }
 
 /* ACCORDION LINKS */
-.linksDiv a, #linksResults a {
+.linksDiv a, #linksResults a, #tags-results a {
     color: white;
     font-weight: 300;
-}
-.linksDiv a:hover, #linksResults a:hover {
-    color: darkorange;
-    font-weight: 400;
-    text-decoration: none;
+    &:hover {
+        color: darkorange;
+        font-weight: 400;
+        text-decoration: none;
+    }
 }
 .linksDiv {
     margin-bottom: 3rem;
@@ -108,15 +138,15 @@
     cursor: pointer;
     margin-top: 1.5rem; margin-right: auto; margin-left: auto;
     margin-bottom: 1rem;
-    padding-top: .2rem;
-    width: 30px;
-    height: 30px;
+    padding-top: .5rem;
+    width: 40px;
+    height: 40px;
     background-color: $myGrey;
     border-radius: 25px;
     box-shadow: $usualBlackShadow;
     transition: width .8s ease-out;
     &:hover {
-        width: 100px;
+        width: 130px;
         transition: width .3s ease-out;
     }
     &:hover .hoverContent {
@@ -125,4 +155,8 @@
     &:hover #searchIcon {
         display: none;
     }
+}
+
+#links-placeholder {
+    height: 3rem;
 }

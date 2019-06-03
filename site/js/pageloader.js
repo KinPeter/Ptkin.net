@@ -62,7 +62,7 @@ const page = {
         });
     },
     hideElements() {
-        $('.downloadCVwrapper, #linksWrapper, #linksMatches, #emailform').hide();
+        $('.downloadCVwrapper, #linksWrapper, #linksMatches, #tags-matches, #emailform').hide();
         $('#loading-screen').fadeOut(500);
         nav.addStickyNavbar();
     }

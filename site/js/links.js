@@ -5,9 +5,9 @@ const links = {
     init() {
         //show 'loading' while ajax call in progress
         $('.list-group').html('<li class="list-group-item">loading...</li>');
-        this.fillAllLists();
         this.searchToggleListener();
         this.searchButtonListener();
+        this.tagButtonListener();
     },
     searchToggleListener() {
         $('#linksSearchToggle').click(() => $('#linksWrapper').toggle('slow')); 
@@ -20,16 +20,19 @@ const links = {
             $('#linksInput').autocomplete( 'close' );
         });
     },
-    fillAllLists() {
-        this.fillListFromAPI('#topPicksList', 'toppicks');
-        this.fillListFromAPI('#coursesList', 'courses');
-        this.fillListFromAPI('#linuxList', 'linux');
-        this.fillListFromAPI('#resourcesList', 'resources');
-        this.fillListFromAPI('#docsList', 'docs');
-        this.fillListFromAPI('#frameWorksList', 'frameworks');
+    tagButtonListener() {
+        $('.tag-buttons').on('click', 'button', function() {
+            let tag = $(this).attr('data-tag');
+            let tagName = $(this).html()
+            console.log(tag);
+            links.fillListByTag('#tags-results', tag, tagName);
+        });
     },
-    fillListFromAPI(domElement, category) {
-        $.getJSON(`${domain}/dbadmin/server/server.php?met=all&cat=${category}`, (data) => {
+    fillListByTag(domElement, tag, tagName) {
+        $('#tags-matches').show();
+        $(domElement).html('<li class="list-group-item">Loading...</li>');
+        $('#tags-results-header').html(tagName);
+        $.getJSON(`${domain}/dbadmin/server/linkserver.php?met=tag&tag=${tag}`, (data) => {
             if (!data) {
                 return alert('No data was found :(');
             }
@@ -37,33 +40,33 @@ const links = {
             $(domElement).html('');
             //fill up the list
             data.forEach(link => {
-                $(domElement).append(`<li class="list-group-item"><a href="${link.link}" target="_blank">${link.name}</a></li>`);
+                $(domElement).append(`<li class="list-group-item"><a href="${link.link_url}" target="_blank">${link.link_name}</a></li>`);
             });
         });
     },
-    async getLinkNames() {
-        //function to fill the list for autocomplete
-        try {
-            var result = await fetch(`${domain}/dbadmin/server/server.php?met=namelist`);
-            var data = await result.json();
-            var array = data.map((link) => link.name);
-            return array;
-        } catch (error) {
-            alert('Sorry, autocomplete is out of order now. ->', error.message);
-        }
-    },
     searchFromAPI(domElement, name) {
         $('#linksMatches').show();
-        $.getJSON(`${domain}/dbadmin/server/server.php?met=sr&name=${name}`, (data) => {
+        $.getJSON(`${domain}/dbadmin/server/linkserver.php?met=sr&name=${name}`, (data) => {
             //clear 'loading' text
             $(domElement).html('');
             //fill up the list
             data.forEach(link => {
-                $(domElement).append(`<li class="list-group-item"><a href="${link.link}" target="_blank">${link.name}</a></li>`);
+                $(domElement).append(`<li class="list-group-item"><a href="${link.link_url}" target="_blank">${link.link_name}</a></li>`);
             });
         }).fail((xhr, status, message) => {
             $(domElement).html('');
             $(domElement).append('<li class="list-group-item">Unable to fetch data or link not found. :(</li>');
         });
+    },
+    async getLinkNames() {
+        //function to fill the list for autocomplete
+        try {
+            let result = await fetch(`${domain}/dbadmin/server/linkserver.php?met=namelist`);
+            let data = await result.json();
+            let array = data.map((link) => link.link_name);
+            return array;
+        } catch (error) {
+            alert('Sorry, autocomplete is out of order now. ->', error.message);
+        }
     }
 }
