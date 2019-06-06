@@ -24,6 +24,7 @@ const page = {
                 travels.init();
                 contact.init();
                 this.hideElements(); 
+                this.startCarousel();
             });                       
         });
     },
@@ -65,5 +66,12 @@ const page = {
         $('.downloadCVwrapper, #linksWrapper, #linksMatches, #tags-matches, #emailform').hide();
         $('#loading-screen').fadeOut(500);
         nav.addStickyNavbar();
+    },
+    startCarousel() {
+        $('.carousel').carousel({
+            interval: 3500,
+            pause: false,
+            ride: 'carousel'
+        });
     }
 }
