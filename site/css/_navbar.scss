@@ -29,6 +29,14 @@
         border-bottom: 2px solid orange;        
     }
 }
+@media (min-width: 768px) {
+    .nav-item-main {
+        margin-left: 1rem;
+    }
+    .navbar-brand {
+        margin-left: .3rem;
+    }
+}
 .dropdown-menu {
     background-color: $myGrey;
     box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
@@ -41,6 +49,85 @@
         }
     }
 }
-#peters {
+
+.navbar-brand {
     cursor: pointer;
+
+    svg#p-logo {
+        width: 80px;
+        height: auto;
+        margin-top: -.3rem;
+        
+        path {
+            stroke: none;
+        }
+        .orange {
+            fill: #ff8000;
+        }
+        .def-color {
+        fill: $almostWhite;
+        }
+
+        #logo-curly-right {
+            transform: translateX(-55%);
+        }
+        #logo-p {
+            transform: translateX(-2%);
+            transform-origin: 10% 50%;
+        }
+        #logo-dash, #logo-k, #logo-i, #logo-n { opacity: 0; }
+
+        #logo-dash  { transform-origin: 38% 50%; }
+        #logo-k     { transform-origin: 50% 50%; }
+        #logo-i     { transform-origin: 63% 50%; }
+        #logo-n     { transform-origin: 75% 50%; }
+    }
+
+    &:hover {
+        #logo-curly-right { 
+            animation: curlyAnimate .8s ease forwards;
+        } 
+        #logo-p {
+            animation: pAnimate .6s ease forwards;
+        }
+        #logo-dash { animation: spinIn .6s ease .4s forwards; }
+        #logo-k    { animation: spinIn .6s ease .5s forwards; }       
+        #logo-i    { animation: spinIn .6s ease .6s forwards; }       
+        #logo-n    { animation: spinIn .6s ease .7s forwards; }
+    }
+}
+
+@keyframes curlyAnimate {
+    0%   { transform: translateX(-55%); }
+    30%  { transform: translateX(-75%); }
+    40%  { transform: translateX(-75%); }
+    100% { transform: translateX(0); }
+}
+
+@keyframes pAnimate {
+    0% {
+        transform: translateX(-2%);
+        transform: scaleX(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translateX(-10%);
+        transform: scaleX(0);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        transform: scaleX(1);
+        opacity: 1;
+    }
+}
+
+@keyframes spinIn {
+    from {
+        opacity: 0;
+    } 
+    to {
+        opacity: 1;
+        transform: rotateY(360deg);
+    }
 }

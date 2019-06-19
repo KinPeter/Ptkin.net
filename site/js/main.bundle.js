@@ -109,7 +109,7 @@ const nav = {
         $('#contact-nav').click(() => this.scrollDownToBottom());
     },
     toTopListener() {
-        $('#peters, #backToTop').click(() =>$('html, body').animate({ scrollTop: 0}, 1000));
+        $('#p-logo, #backToTop').click(() =>$('html, body').animate({ scrollTop: 0}, 1000));
         $(window).scroll(() => {
             let scroll = $(window).scrollTop();
             if (scroll >= 200) $('#backToTop').fadeIn(500);
