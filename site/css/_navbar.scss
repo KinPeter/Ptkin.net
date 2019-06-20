@@ -69,31 +69,28 @@
         }
 
         #logo-curly-right {
-            transform: translateX(-55%);
+            animation: curlyAnimateBack .8s ease .4s both;
         }
         #logo-p {
-            transform: translateX(-2%);
             transform-origin: 10% 50%;
+            animation: pAnimateBack .6s ease .4s both;
         }
-        #logo-dash, #logo-k, #logo-i, #logo-n { opacity: 0; }
-
-        #logo-dash  { transform-origin: 38% 50%; }
-        #logo-k     { transform-origin: 50% 50%; }
-        #logo-i     { transform-origin: 63% 50%; }
-        #logo-n     { transform-origin: 75% 50%; }
+        
+        #logo-dash  { transform-origin: 38% 50%; animation: spinOut .6s ease .3s both; }
+        #logo-k     { transform-origin: 50% 50%; animation: spinOut .6s ease .2s both; }
+        #logo-i     { transform-origin: 63% 50%; animation: spinOut .6s ease .1s both; }
+        #logo-n     { transform-origin: 75% 50%; animation: spinOut .6s ease .0s both; }
     }
 
     &:hover {
-        #logo-curly-right { 
-            animation: curlyAnimate .8s ease forwards;
-        } 
-        #logo-p {
-            animation: pAnimate .6s ease forwards;
+        svg#p-logo {
+            #logo-curly-right { animation: curlyAnimate .8s ease both; } 
+            #logo-p { animation: pAnimate .6s ease both; }
+            #logo-dash { animation: spinIn .6s ease .4s both; }
+            #logo-k    { animation: spinIn .6s ease .5s both; }       
+            #logo-i    { animation: spinIn .6s ease .6s both; }       
+            #logo-n    { animation: spinIn .6s ease .7s both; }
         }
-        #logo-dash { animation: spinIn .6s ease .4s forwards; }
-        #logo-k    { animation: spinIn .6s ease .5s forwards; }       
-        #logo-i    { animation: spinIn .6s ease .6s forwards; }       
-        #logo-n    { animation: spinIn .6s ease .7s forwards; }
     }
 }
 
@@ -103,31 +100,57 @@
     40%  { transform: translateX(-75%); }
     100% { transform: translateX(0); }
 }
-
+@keyframes curlyAnimateBack {
+    0%   { transform: translateX(0); }
+    30%  { transform: translateX(-75%); }
+    40%  { transform: translateX(-75%); }
+    100% { transform: translateX(-55%); }
+}
 @keyframes pAnimate {
     0% {
-        transform: translateX(-2%);
-        transform: scaleX(1);
+        transform: scaleX(1) translateX(-2%);
         opacity: 1;
     }
     50% {
-        transform: translateX(-10%);
-        transform: scaleX(0);
+        transform: scaleX(0) translateX(-10%);
         opacity: 0;
     }
     100% {
-        transform: translateX(0);
-        transform: scaleX(1);
+        transform: scaleX(1) translateX(0%);
         opacity: 1;
     }
 }
-
+@keyframes pAnimateBack {
+    0% {
+        opacity: 1;
+        transform: scaleX(1) translateX(0%);
+    }
+    50% {
+        opacity: 0;
+        transform: scaleX(0) translateX(-10%);
+    }
+    100% {
+        opacity: 1;
+        transform: scaleX(1) translateX(-2%);
+    }
+}
 @keyframes spinIn {
     from {
         opacity: 0;
+        transform: rotateY(0deg);
     } 
     to {
         opacity: 1;
         transform: rotateY(360deg);
+    }
+}
+@keyframes spinOut {
+    from {
+        opacity: 1;
+        transform: rotateY(360deg);
+    } 
+    to {
+        opacity: 0;
+        transform: rotateY(0deg);
     }
 }
