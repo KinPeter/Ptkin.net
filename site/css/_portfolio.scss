@@ -1,21 +1,121 @@
 /* PORTFOLIO */
-#pf-arrows {
-    margin-bottom: 5rem;
-    text-shadow: $usualBlackShadow;
+%background-slidein-props {
+    /* for background slide in animation */ 
+    background: linear-gradient(90deg, rgba(255,255,255,.05) 0%, rgba(255,255,255,.05) 100%);
+    background-position: -1100px 0;
+    background-repeat: no-repeat;
+    transition: background .5s ease;
+}
+%filter-dropshadow-black {
+    filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6));
+}
+#pf-montage {
+    @extend %filter-dropshadow-black;
+    @media (min-width: 768px) {
+        margin: 3rem auto 0;
+    };
+}
+#pf-show-all-wrapper {
+    @media (min-width: 768px) {
+        height: 200px;
+        margin: 0 auto 2rem;
+    };
+}
+#pf-show-all {
+    @extend %background-slidein-props;
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    width: 90%;
+    height: 75px;
+    margin: 1rem auto;
+    border: 1px solid darkorange;
+    padding: 1rem 1rem;
+    overflow: hidden;
     i {
-        display: block;
+        transition: all .5s ease;
         margin: -2rem auto;
-        /* transform: scaleY(.7); */
     }
     #pf-lets-check {
         font-family: $damion;
-        color: darkorange;
-        font-size: 2.5rem;
-        margin: 1rem auto 0 auto;
+        color: $almostWhite;
+        font-size: 1.5rem;
     }
-    p {
-        margin: 0 auto 2rem auto;
+    #pf-arrow-1 {
+        transform: rotate(-90deg) scale(.8, .5) translate(40px, -140px);
+    }
+    #pf-arrow-2 {
+        transform: rotate(90deg) scale(.8, .5) translate(-40px, -230px);
+    }
+    #pf-arrow-3 {
+        transform: rotate(0deg) scaleY(.7) translate(-47px, -100px);
+        opacity: 0;
+    }
+    @media (min-width: 768px) {
+        width: auto;
+        height: 100px;
+        margin: 3rem auto;
+        padding: 1rem 5rem;
+        transition: all .5s ease;
+        #pf-lets-check {
+            font-size: 2.5rem;           
+            transition: all .5s ease;         
+        }
+        #pf-arrow-1 {
+            transform: rotate(90deg) scaleY(.7) translate(-45px, 190px);
+        }
+        #pf-arrow-2 {
+            transform: rotate(-90deg) scaleY(.7) translate(45px, 250px);
+        }
+        #pf-arrow-3 {
+            transform: rotate(0deg) scaleY(.7) translate(-47px, -100px);
+            opacity: 0;
+        }
+        &:hover {
+            height: 130px;
+            padding: 0 1rem;
+            border: 1px solid $almostWhite;
+            color: darkorange;
+            background-position: 0 0;
+            #pf-lets-check {
+                color: darkorange;
+            }
+            #pf-arrow-1 {
+                transform: rotate(0deg) scaleY(.7) translate(46px, 22px);
+                animation: arrowsLight .8s .2s infinite alternate;
+            }
+            #pf-arrow-2 {
+                transform: rotate(0deg) scaleY(.7) translate(0px, 0px);
+                animation: arrowsLight .8s 0s infinite alternate;
+            }
+            #pf-arrow-3 {
+                transform: scaleY(.7) translate(-47px, 44px);
+                animation: arrowsLight .8s .4s infinite alternate;
+                opacity: 1;
+            }
+        }
+    }
+}
+@keyframes arrowsLight {
+    0% { color: darkorange; }
+    75% { color: darkorange; }
+    100% { color: $almostWhite; }
+}
 
+.pf-row {
+    cursor: pointer;
+    &:hover {
+        .pf-div {
+            .pf-title-row {
+                background-position: 0 0;
+                .pf-name {
+                    color: darkorange;
+                }
+            }
+        }
+        .pf-img {
+            filter: drop-shadow(0 5px 5px rgba(255,140,0,0.6));
+        }
     }
 }
 .pf-div {
@@ -29,16 +129,10 @@
         &:hover {
             @extend %pfLinkHover;
         }
-    }
-    .pf-title-row {
-        cursor: pointer;
+    }    
+    .pf-title-row { 
+        @extend %background-slidein-props;
         padding: .5rem;
-        &:hover {
-            .pf-name {
-                color: darkorange;
-            }
-            background-color: rgba(255,255,255,.05);
-        }
         .pf-desc {
             margin-top: .5rem;
         }
@@ -49,8 +143,7 @@
     .pf-img {            
             width: 100%;
             margin-bottom: 1.5rem;
-            filter: drop-shadow(0 5px 5px rgba(0,0,0,0.6));
-            // box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
+            @extend %filter-dropshadow-black;
         }
     .pf-img-div {        
         @media (min-width: 768px) {
@@ -71,4 +164,40 @@
     }
 }
 
+#pf-close-collapse {
+    display: none;
+    cursor: pointer;
+    position: fixed;
+    bottom: 0;
+    left: 20px;
+    padding: 1rem 1.5rem;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    background: rgba(0,0,0,0.7);
+    font-family: $comfortaa;
+    z-index: 1;
+    i {
+        margin-left: 0.5rem;
+    }
+    &:hover {
+        color: darkorange;
+        i {
+            transform: scale(1.1);
+        }
+    }
+}
+.slide-in-left {
+    animation: 0.5s ease-out 1 slide-in-left;
+}
+
+@keyframes slide-in-left {
+    0% {
+        transform: translateX(-1500%);
+        opacity: 0.5; 
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1; 
+    }
+}
 

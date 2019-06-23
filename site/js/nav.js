@@ -55,7 +55,8 @@ const nav = {
         const navs = ['#about-nav', '#portfolio-nav', '#links-nav', '#travels-nav', '#contact-nav'];
         let currentIndex;
         for (let i = 0; i < sections.length; i++) {
-            let diff = $(window).width() > 500 ? 120 : 340;
+            // let diff = $(window).width() > 500 ? 120 : 340;
+            let diff = 340;
             if ( $(sections[i]).offset().top - diff <= $(window).scrollTop() ||
                 // if we are at the bottom, "force it" so #contact will also work
                 $(document).height()-$(window).height() == $(window).scrollTop()) {

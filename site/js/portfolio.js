@@ -4,34 +4,32 @@
 const portfolio = {
     items: [],
     init() {
-        this.animateArrows();
         this.appendItemsToHtml();
         this.showDetailsToggleListener();
+        this.closePortfolioListener();
     },
-    setArrow: (id) => $(id).css({'color':'white' , 'transform' : 'scale(1, 1)'}),
-    resetArrow: (id) => $(id).css({'color':'darkorange' , 'transform' : 'scale(1, 0.7)'}),
-    animateArrows() {
-        this.setArrow('#pf-arrow-1');
-        setTimeout(() => {
-            this.resetArrow('#pf-arrow-1');
-            this.setArrow('#pf-arrow-2');
-            setTimeout(() => {
-                this.resetArrow('#pf-arrow-2');
-                this.setArrow('#pf-arrow-3');
-                setTimeout(() => {
-                    this.resetArrow('#pf-arrow-3');
-                }, 50)
-            }, 50)
-        }, 50)
-        setTimeout(() => {
-            return this.animateArrows();
-        }, 1000)
+    closePortfolioListener() {
+        $(window).scroll(() => {
+            let scroll = $(window).scrollTop();
+            if ($('#portfolio-items').hasClass('show')
+                && scroll > $('#portfolio-section').offset().top
+                && scroll < $('#links-section').offset().top - 500
+                ) {
+                $('#pf-close-collapse').fadeIn(500);
+            }
+            else $('#pf-close-collapse').fadeOut(500);
+        });
+        $('#pf-close-collapse').on('click', () => {
+            nav.scrollTo('#portfolio-section');
+            $('#portfolio-items').collapse('hide');
+            $('#pf-close-collapse').fadeOut(500);
+        });
     },
-    showDetailsToggleListener() {        
-        $('.pf-title-row').click(function() {
-            let collapse = $(this).next('.pf-details'); 
-            let myDiv = $(this).parent();
-            let imageDiv = $(this).parent().next('.pf-img-div');
+    showDetailsToggleListener() {
+        $('.pf-row').click(function() {
+            let collapse = $(this).find('.pf-details'); 
+            let myDiv = $(this).children().first();
+            let imageDiv = $(this).find('.pf-img-div');
             let image = imageDiv.find('img');
 
             if ($(window).width() > 768) {
@@ -75,7 +73,7 @@ const portfolio = {
         return html;
     },
     addTitleRow(name) {
-        return `<div class="container fadeIn"><div class="row"><div class="col-md-9 pf-div pf-text-div"><div class="pf-title-row"><h4 class="pf-name">${name}</h4><div class="pf-badges">`;
+        return `<div class="container slide-in-left"><div class="row pf-row"><div class="col-md-9 pf-div pf-text-div"><div class="pf-title-row"><h4 class="pf-name">${name}</h4><div class="pf-badges">`;
     },
     addBadge(badge) { 
         return `<span class="badge">${badge}</span>`;
