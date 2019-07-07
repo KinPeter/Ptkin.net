@@ -1,18 +1,42 @@
 /* ABOUT ME */
-.aboutDiv {
-    text-align: justify;
-    a {
-        font-weight: bold;
-        color: darkorange;
-        &:hover {
-            color: $myGrey;
-        }
-    }
-    h4 {
-        margin-bottom: 1rem;
+%aboutLink {
+    font-weight: bold;
+    color: darkorange;
+    &:hover {
+        color: $myGrey;
     }
 }
+
+%aboutAnimateInit {
+    transform-origin: left center;
+    perspective: 100px;
+    transform: rotate3d(0, 1, .5, -180deg);
+    opacity: 0;
+}
+
+#about .title {
+    margin: 3rem auto;
+}
+.aboutDiv {
+    padding: .5rem 1rem;
+    p {
+        text-align: justify;
+    }
+    a {
+        @extend %aboutLink;
+    }
+    h4 {
+        text-align: center;
+        margin-bottom: 1rem;
+    }
+    @extend %aboutAnimateInit;
+}
+
+.aboutImgWrapper {
+    padding: 0 1rem;
+}
 .aboutImg {
+    border-radius: 20% 80% 20% 80% !important;
     margin-bottom: 1.5rem;
     box-shadow: 0 5px 10px 2px rgba(0,0,0,0.5);
 }
@@ -52,4 +76,48 @@
         width: 15rem;
         margin: 0 auto;
     } 
+}
+.skills-row {
+    .skills-col, .goals-col {
+        @extend %aboutAnimateInit;
+    }
+    .skill-title {
+        @extend %comfortaa-bold;
+        font-size: 1.5rem;
+        border-left: 3px solid $myOrange;
+        padding: .7rem;
+        margin-bottom: 1rem;
+    }
+    a {
+        @extend %aboutLink;
+    }
+    p {
+        padding-left: .8rem;
+    }
+    ul {
+        padding-left: .8rem;
+        margin-bottom: 2rem;
+        li {
+            list-style-type: none;
+            line-height: 1.7;
+            i {
+                color: $myOrange;
+                margin-right: 0.5rem;
+            }
+        }
+    }
+    .working {
+        i.fas {
+            font-size: 4rem;
+        }
+        font-size: 2rem;
+        margin-top: 5rem;
+        color: grey;
+    }
+}
+
+.aboutDivAnimateIn {
+    transform: rotate3d(0, 1, .5, 0deg) !important;
+    opacity: 1 !important;
+    transition: all .5s;
 }

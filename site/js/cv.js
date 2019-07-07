@@ -8,7 +8,8 @@ const cv = {
     },
     togglePasswordListener() {
         let open = false;
-        $('#downloadCVtitle').click(() => {
+        $('#downloadCVtitle a').click((e) => {
+            e.preventDefault();
             $('.downloadCVwrapper').slideToggle('500', () => {
                 if (!open) {
                     open = true;

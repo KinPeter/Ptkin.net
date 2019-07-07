@@ -40,7 +40,9 @@ body {
     background-image: url(../../images/full-bloom.png);
     @extend %nunito300;
 }
-
+b {
+    font-weight: bold;
+}
 /* Fade in animation for content */
 @keyframes fadeIn {
     0%   { opacity: 0; }
@@ -223,10 +225,10 @@ p {
     .welcomeP {
         font-size: 1.5rem;
     }
-    .aboutDiv {
-        padding-left: 2rem;
-        padding-right: 2rem;
-    }
+    // .aboutDiv {
+    //     padding-left: 2rem;
+    //     padding-right: 2rem;
+    // }
     #emailform {
         width: 35vw;
     }

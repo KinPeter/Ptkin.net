@@ -21,6 +21,7 @@ const page = {
             this.loadPortfolioJson().then(() => {
                 console.log('All HTML loaded.');
                 nav.init();
+                about.init();
                 cv.init();
                 portfolio.init();
                 links.init();
@@ -160,6 +161,37 @@ const nav = {
 
 
 /*
+* included file: ./about.js
+*/
+
+const about = {
+    init() {
+        this.animateInAboutDivsOnScroll();
+    },
+    animateInAboutDivsOnScroll() {
+        $(window).on('scroll', (e) => {
+            if (!$('.about-divs-row div:nth-child(1)').hasClass('aboutDivAnimateIn')
+                && $(window).scrollTop() > 90) {
+                let i = 1;
+                const interval = setInterval(() => {
+                    $(`.about-divs-row div:nth-child(${i++})`).addClass('aboutDivAnimateIn');
+                    if (i > 4) clearInterval(interval);
+                }, 200);
+            }
+            if (!$('.skills-row div:nth-child(1)').hasClass('aboutDivAnimateIn')
+                && $(window).scrollTop() > 500) {
+                let i = 1;
+                const interval = setInterval(() => {
+                    $(`.skills-row div:nth-child(${i++})`).addClass('aboutDivAnimateIn');
+                    if (i > 2) clearInterval(interval);
+                }, 200);
+            }
+        });
+    }
+}
+
+
+/*
 * included file: ./cv.js
 */
 
@@ -173,7 +205,8 @@ const cv = {
     },
     togglePasswordListener() {
         let open = false;
-        $('#downloadCVtitle').click(() => {
+        $('#downloadCVtitle a').click((e) => {
+            e.preventDefault();
             $('.downloadCVwrapper').slideToggle('500', () => {
                 if (!open) {
                     open = true;
@@ -545,7 +578,7 @@ const contact = {
 * MAIN file:
 */
 
-/*@include: ./pageloader.js, ./nav.js, ./cv.js, ./portfolio.js, ./autocomplete.js, ./links.js, travels.js, ./contact.js @end*/
+/*@include: ./pageloader.js, ./nav.js, ./about.js, ./cv.js, ./portfolio.js, ./autocomplete.js, ./links.js, travels.js, ./contact.js @end*/
 
 $(document).ready(() => {
     page.init();

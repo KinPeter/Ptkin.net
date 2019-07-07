@@ -1,46 +1,83 @@
 <!-- == ABOUT SECTION == --> 
 <div class="container fadeIn" id="about"> 
     <div class="title text-center">About Me</div>
-    <div class="row">
-        <div class="col-md-6 aboutDiv">
+    <div class="row about-divs-row">
+        <div class="col-lg-3 col-md-6 aboutDiv">
             <div class="aboutImgWrapper">
                 <img src="images/about_me.jpg" alt="Me" class="img-fluid rounded aboutImg">
             </div>
             <h4>My name is Peter</h4>
-            <p> Thank you for taking the time to check out my first website! I think this is going to be a work in progress forever. I plan to upload and keep updated all my relevant works in my <a id="portfolio-link" href="#">Portfolio</a>, make a collection of useful websites in the <a id="links-link" href="#">Links</a> section, and make some of my webapps easily accessible for myself, or for anybody else of course. You may also find some information about me, download my <a href="#" id="cv-link">CV</a>, or contact me on the ways you can see below.</p><br>
+            <p> Thank you for visiting my first website! Here you'll find some information about me, I'll upload and keep updated all my relevant works in my <a id="portfolio-link" href="#">Portfolio</a>, and make my collection of useful websites available for you in the <a id="links-link" href="#">Links</a> section.</p><br>
         </div>
-        <div class="col-md-6 aboutDiv">
+        <div class="col-lg-3 col-md-6 aboutDiv">
             <div class="aboutImgWrapper">
                 <img src="images/about_coding.jpg" alt="Coding" class="img-fluid rounded aboutImg">
             </div>
             <h4>I learn to code</h4>
-            <p> The main reason I created this site is not long ago I started to learn coding. Although I spent my last 12 years in the tourism industry, I decided to make a change to my whole life. At 33 years of age, I decided to become a programmer. At the beginning I have been studying at home with online courses of <a href="http://www.udemy.com" target="_blank">Udemy</a>, but now I'm attending a "live" Junior Software Developer course. My aim is to get my first developer job by the end of the year! <em>Wish me luck!</em>  </p><br>
+            <p>After 12 years in the tourism industry, I decided to make a change and become a programmer. I'll soon finish a Junior Software Developer course, and my goal is to get my first developer job as soon as possible. <em>Wish me luck!</em>  </p><br>
         </div>      
-    </div>    
-    <div class="row">
-        <div class="col-md-6 aboutDiv">
+        <div class="col-lg-3 col-md-6 aboutDiv">
             <div class="aboutImgWrapper">
                 <img src="images/about_travel.jpg" alt="Travel" class="img-fluid rounded aboutImg">
             </div>
             <h4>I love to travel</h4>
-            <p> The thing I enjoy the most on this world is traveling. I agree to the saying <em>"Traveling is the only thing you can buy and makes you richer."</em> Working in any part of the tourism industry has it's perks: sometimes free, but mostly discounted trips to more and more interesting places. Whenever I have the chance, I hop on a plance and go to discover new destinations, preferably first in East Asia or just around Europe. You can check out where I've been to in the <a id="travels-link" href="#">Travels</a> section.</p><br>
+            <p> I agree to the saying <em>"Traveling is the only thing you can buy and makes you richer."</em> Whenever I have the chance, I hop on a plance and go to discover new destinations. You can check out where I've been to in the <a id="travels-link" href="#">Travels</a> section.</p><br>
         </div>
-        <div class="col-md-6 aboutDiv">
+        <div class="col-lg-3 col-md-6 aboutDiv">
             <div class="aboutImgWrapper">
                 <img src="images/about_korea.jpg" alt="Korea" class="img-fluid rounded aboutImg">
             </div>
-            <h4>I'm also interested in</h4>
-            <p> My second biggest passion is a bit in connection with my love to travel. During my trips I really fell in love with the Far East, especially with Korea and Japan. Their culture, history, ways of living, and just their people simply amaze me. Not to mention their cuisine... I often take time to read and learn more about them, I also learn Korean as my third language, and of course continously planning my next journey to my favorite countries. </p><br>
+            <h4>I'm interested in</h4>
+            <p> During my trips I fell in love with the Far East, especially with Korea and Japan. Their culture, history, ways of living simply amaze me, not to mention their cuisine. I learn Korean as my third language, and continously planning my next trips there. </p><br>
+        </div>
+    </div>    
+    <div class="row skills-row">
+        <div class="col-lg-6 skills-col">
+            <div class="skill-title">My skills</div>
+            <div class="working text-center">
+                <i class="fas fa-tools"></i>
+                <i class="fas fa-cogs"></i>
+                <br> Working on it!
+                <i class="far fa-smile-wink"></i>
+            </div>
+
+        </div>
+        <div class="col-lg-6 goals-col">
+            <div class="skill-title">Jobs I enjoy the most</div>
+            <ul>
+                <li><i class="fas fa-thumbs-up"></i>
+                    Writing <b>JavaScript</b> and <b>JQuery</b>
+                </li>
+                <li><i class="fas fa-thumbs-up"></i>
+                    Communicating with (REST) <b>API</b>s 
+                </li>
+                <li><i class="fas fa-thumbs-up"></i>
+                    Tinkering with <b>CSS</b> and animations
+                </li>
+                <li><i class="fas fa-thumbs-up"></i>
+                    Discovering <b>TypeScript</b> to bring more OOP to JS
+                </li>
+            </ul>
+            <div class="skill-title">Current goals</div>
+            <ul>
+                <li><i class="fas fa-thumbs-up"></i>
+                    Dive deeper into <b>Angular</b> and <b>React</b>
+                </li>
+                <li><i class="fas fa-thumbs-up"></i>
+                    Learn about <b>Wordpress</b>
+                </li>
+                <li><i class="fas fa-thumbs-up"></i>
+                    Become a <b>CSS Magician</b><i class="far fa-smile-wink ml-1"></i>
+                </li>
+            </ul>
+            <div class="skill-title">Download my CV</div>
+            <p id="downloadCVtitle" >Please <a href="">click here</a> to download my CV.</p>
+            <div class="row downloadCVwrapper">
+                <p>Excuse me, I would only like potential employers to get my CV, so if you haven't received the password from me yet, please kindly ask first.</p>
+                <input class="form-control bg-dark text-light" type="password" id="passwordInput" placeholder="Enter password">
+                <button class="btn mt-2 mb-4" type="button" id="CVSubmit">Submit</button>
+                <div id="passwordResult"></div>
+            </div>    
         </div>
     </div>   
-    <div class="row smallTitleRow" id="downloadCVtitle">
-        <div class="col-md-6 text-center smallTitle">Download CV</div>
-        <div class="col-md-6 text-left smallDescription">Please click here to download my CV.</div>
-    </div>  
-    <div class="row downloadCVwrapper">
-        <p>Excuse me, I would only like potential employers to get my CV, so if you haven't received the password from me yet, please kindly ask first.</p>
-        <input class="form-control bg-dark text-light" type="password" id="passwordInput" placeholder="Enter password">
-        <button class="btn mt-2 mb-4" type="button" id="CVSubmit">Submit</button>
-        <div id="passwordResult"></div>
-    </div>    
 </div>

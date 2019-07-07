@@ -17,6 +17,7 @@ const page = {
             this.loadPortfolioJson().then(() => {
                 console.log('All HTML loaded.');
                 nav.init();
+                about.init();
                 cv.init();
                 portfolio.init();
                 links.init();
