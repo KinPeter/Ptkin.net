@@ -167,6 +167,7 @@ const nav = {
 const about = {
     init() {
         this.animateInAboutDivsOnScroll();
+        this.setDataMeters();
     },
     animateInAboutDivsOnScroll() {
         $(window).on('scroll', (e) => {
@@ -186,6 +187,12 @@ const about = {
                     if (i > 2) clearInterval(interval);
                 }, 200);
             }
+        });
+    },
+    setDataMeters() {
+        document.querySelectorAll('.skill-meter').forEach((elem) => {
+            const width = elem.getAttribute('data-meter');
+            elem.style.width = width + '%';    
         });
     }
 }
