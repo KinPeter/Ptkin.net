@@ -36,39 +36,39 @@
             <div class="skill-title">My skills</div>
             <div data-skill="JavaScript" class="row skill-meter-row">
                 <div class="col-2"> <i class="fab fa-js"></i> </div>
-                <div class="col-10"><div class="skill-meter" data-meter="100"></div></div>
+                <div class="col-10"><div class="skill-meter" id="js-meter"></div></div>
             </div>
             <div data-skill="JQuery" class="row skill-meter-row">
                 <div class="col-2"> <img src="images/skill-icons/jquery-icon.svg"> </div>
-                <div class="col-10"><div class="skill-meter" data-meter="90"></div></div>
+                <div class="col-10"><div class="skill-meter" id="jq-meter"></div></div>
             </div>
             <div data-skill="HTML5" class="row skill-meter-row">
                 <div class="col-2"> <i class="fab fa-html5"></i> </div>
-                <div class="col-10"><div class="skill-meter" data-meter="90"></div></div>
+                <div class="col-10"><div class="skill-meter" id="ht-meter"></div></div>
             </div>
             <div data-skill="CSS3" class="row skill-meter-row">
                 <div class="col-2"> <i class="fab fa-css3-alt"></i> </div>
-                <div class="col-10"><div class="skill-meter" data-meter="95"></div></div>
+                <div class="col-10"><div class="skill-meter" id="cs-meter"></div></div>
             </div>
             <div data-skill="SASS" class="row skill-meter-row">
                 <div class="col-2"> <i class="fab fa-sass"></i> </div>
-                <div class="col-10"><div class="skill-meter" data-meter="70"></div></div>
+                <div class="col-10"><div class="skill-meter" id="sa-meter"></div></div>
             </div>
             <div data-skill="Bootstrap" class="row skill-meter-row">
                 <div class="col-2"> <img src="images/skill-icons/bootstrap-brands.svg" id="bootstrap-img"> </div>
-                <div class="col-10"><div class="skill-meter" data-meter="85"></div></div>
+                <div class="col-10"><div class="skill-meter" id="bs-meter"></div></div>
             </div>
             <div data-skill="TypeScript" class="row skill-meter-row">
                 <div class="col-2"> <img src="images/skill-icons/typescriptlang-icon.svg"> </div>
-                <div class="col-10"><div class="skill-meter" data-meter="55"></div></div>
+                <div class="col-10"><div class="skill-meter" id="ts-meter"></div></div>
             </div>
             <div data-skill="Angular" class="row skill-meter-row">
                 <div class="col-2"> <i class="fab fa-angular"></i> </div>
-                <div class="col-10"><div class="skill-meter" data-meter="45"></div></div>
+                <div class="col-10"><div class="skill-meter" id="ng-meter"></div></div>
             </div>
             <div data-skill="React" class="row skill-meter-row">
                 <div class="col-2"> <i class="fab fa-react"></i> </div>
-                <div class="col-10"><div class="skill-meter" data-meter="20"></div></div>
+                <div class="col-10"><div class="skill-meter" id="re-meter"></div></div>
             </div>
 
         </div>
@@ -82,6 +82,9 @@
                     Communicating with (REST) <b>API</b>s 
                 </li>
                 <li><i class="fas fa-thumbs-up"></i>
+                    Playing with <b>DOM</b> manipulation
+                </li>
+                <li><i class="fas fa-thumbs-up"></i>
                     Tinkering with <b>CSS</b> and animations
                 </li>
                 <li><i class="fas fa-thumbs-up"></i>
@@ -90,18 +93,22 @@
             </ul>
             <div class="skill-title">Current goals</div>
             <ul>
-                <li><i class="fas fa-thumbs-up"></i>
+                <li><i class="fas fa-crosshairs"></i>
                     Dive deeper into <b>Angular</b> and <b>React</b>
                 </li>
-                <li><i class="fas fa-thumbs-up"></i>
+                <li><i class="fas fa-crosshairs"></i>
                     Learn about <b>Wordpress</b>
                 </li>
-                <li><i class="fas fa-thumbs-up"></i>
+                <li><i class="fas fa-crosshairs"></i>
                     Become a <b>CSS Magician</b><i class="far fa-smile-wink ml-1"></i>
                 </li>
             </ul>
             <div class="skill-title">Download my CV</div>
-            <p id="downloadCVtitle" >Please <a href="">click here</a> to download my CV.</p>
+            <ul>
+                <li id="downloadCVtitle">
+                    <i class="fas fa-download"></i>Please <a href="">click here</a> to download my CV.
+                </li>
+            </ul>
             <div class="row downloadCVwrapper">
                 <p>Excuse me, I would only like potential employers to get my CV, so if you haven't received the password from me yet, please kindly ask first.</p>
                 <input class="form-control bg-dark text-light" type="password" id="passwordInput" placeholder="Enter password">

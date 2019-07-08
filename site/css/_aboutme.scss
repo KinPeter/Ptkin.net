@@ -110,6 +110,7 @@
         margin-bottom: 3rem;
         .row {
             height: 3.5rem;
+            
         }
         .col-2 {
             text-align: center;
@@ -127,17 +128,29 @@
                 padding: .5rem 3rem 1rem 0;
                 border-left: 3px solid $myGrey;
             }
-
+            #js-meter { width: 100%; } // JavaScript
+            #jq-meter { width: 90%;  } // JQuery
+            #ht-meter { width: 90%;  } // HTML
+            #cs-meter { width: 95%;  } // CSS
+            #sa-meter { width: 70%;  } // SASS
+            #bs-meter { width: 85%;  } // BootStrap
+            #ts-meter { width: 55%;  } // TypeScript
+            #ng-meter { width: 45%;  } // Angular
+            #re-meter { width: 15%;  } // React
             .skill-meter {
                 height: 23px;
-                background: linear-gradient(-45deg,
-                    $myOrangeLite 25%, $myOrange 0, $myOrange 50%,
+                background: $myOrange; // fallback
+                background: 
+                    linear-gradient(180deg, #ffffffa1 0, transparent 30%, transparent 70%, #000000a1 100%),
+                    linear-gradient(-45deg, $myOrangeLite 25%, $myOrange 0, $myOrange 50%,
                     $myOrangeLite 0, $myOrangeLite 75%, $myOrange 0);
                 background-size: 30px 30px;
                 border: 2px solid $myGrey;
                 border-left: none;
                 border-top-right-radius: 5px;
                 border-bottom-right-radius: 5px;
+                transform-origin: left center;
+                transition: all 2s ease-out;                
             }
         }
         @media (min-width: 576px) {
@@ -161,13 +174,33 @@
                 .skill-meter {
                     height: 30px;
                 }
+                &:hover {
+                    .skill-meter {
+                        background-position: 100px 0;
+                    }
+                }
             }
         }
     }
+}
+
+@keyframes skillMeterIn {
+    25% { width:  25%; }
+    50% { width: 100%; }
+    75% { width:   5%; }
 }
 
 .aboutDivAnimateIn {
     transform: rotate3d(0, 1, .5, 0deg) !important;
     opacity: 1 !important;
     transition: all .5s;
+    #js-meter { animation: skillMeterIn 4s ease-in-out 0s;   } // JavaScript
+    #jq-meter { animation: skillMeterIn 4s ease-in-out 0.2s; } // JQuery
+    #ht-meter { animation: skillMeterIn 4s ease-in-out 0.4s; } // HTML
+    #cs-meter { animation: skillMeterIn 4s ease-in-out 0.6s; } // CSS
+    #sa-meter { animation: skillMeterIn 4s ease-in-out 0.8s; } // SASS
+    #bs-meter { animation: skillMeterIn 4s ease-in-out 1s;   } // BootStrap
+    #ts-meter { animation: skillMeterIn 4s ease-in-out 1.2s; } // TypeScript
+    #ng-meter { animation: skillMeterIn 4s ease-in-out 1.4s; } // Angular
+    #re-meter { animation: skillMeterIn 4s ease-in-out 1.6s; } // React
 }
