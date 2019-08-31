@@ -131,12 +131,12 @@
             #js-meter { width: 100%; } // JavaScript
             #jq-meter { width: 90%;  } // JQuery
             #ht-meter { width: 90%;  } // HTML
-            #cs-meter { width: 95%;  } // CSS
-            #sa-meter { width: 70%;  } // SASS
+            #cs-meter { width: 100%; } // CSS
+            #sa-meter { width: 75%;  } // SASS
             #bs-meter { width: 85%;  } // BootStrap
-            #ts-meter { width: 55%;  } // TypeScript
-            #ng-meter { width: 45%;  } // Angular
-            #re-meter { width: 40%;  } // React
+            #ts-meter { width: 70%;  } // TypeScript
+            #ng-meter { width: 65%;  } // Angular
+            #re-meter { width: 50%;  } // React
             .skill-meter {
                 height: 23px;
                 background: $myOrange; // fallback

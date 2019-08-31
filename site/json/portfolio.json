@@ -1,11 +1,92 @@
 [{
+    "name": "Startpage 2.0",
+    "badges": [
+        "Angular",
+        "TypeScript",
+        "SCSS",
+        "Firebase",
+        "AngularFire"
+    ],
+    "descr": "A complete remake of my previous jQuery powered startpage but now it's much more fancy, smart and extendable thanks to the Angular framework. Authentication and the whole backend is powered by Firebase & AngularFire. Please feel free to <a href=\"https://startdemo.p-kin.com/\" target=\"_blank\">try the demo version here!</a>",
+    "features": [
+        {
+            "title": "Improved Notes",
+            "text": "Creating notes with optional links, archiving and all the other CRUD operations are available."
+        },
+        {
+            "title": "Shortcut tiles",
+            "text": "My most frequently used websites in sidebar-like containers with cool hover effects."
+        },
+        {
+            "title": "Links database",
+            "text": "I can search my links by tag or by name, or create a new one in a fancy modal."
+        },
+        {
+            "title": "Weather forecast",
+            "text": "Thanks to the DarkSky API I have a beautiful custom weather forecast using my own custom SVG icons."
+        },
+        {
+            "title": "DEV.to posts feed",
+            "text": "Thanks to the DEV.to API I can stay up to date with DEV news using my preferred tags."
+        },
+        {
+            "title": "Korean dictionary",
+            "text": "Custom dictionary search engine connected to my Korean wordlist stored in a Google Sheet. Autocomplete function is added using AngularMaterial."
+        }
+    ],
+    "image": "./images/portfolio/startpage2.jpg",
+    "imageid": "startpage2-img"
+},
+{
+    "name": "Notes for mobile",
+    "badges": [
+        "Svelte JS",
+        "SCSS",
+        "Firebase"
+    ],
+    "descr": "After learning Svelte JS for a project at work I decided to practice a bit and made this mobile friendly webapp and connected it to my notes database on Firebase. I found Svelte a quite handy tool for such a tiny application as it took only a few hours to make it work.",
+    "features": [
+        {
+            "title": "Serverless backend",
+            "text": "Using the Javascript SDK the app is easily connected to Firebase authentication and the Firestore database."
+        },
+        {
+            "title": "Basic \"notes-app\" functionalities",
+            "text": "Now I can quickly read or archive my notes on the go or even create a new one."
+        }
+    ],
+    "image": "./images/portfolio/notes_mobile.png",
+    "imageid": "notes-mobile-img"
+},
+{
+    "name": "WebDictionary",
+    "badges": [
+        "React",
+        "TypeScript",
+        "SCSS"
+    ],
+    "descr": "Web based dictionary app that uses my own word list as a resource. It is possible to search both ways without pre-setting the language, and an autocomplete function also helps to find the word or phrase needed. <a href=\"https://www.p-kin.com/webdict/\" target=\"_blank\">Try it now!</a>",
+    "features": [
+        {
+            "title": "Data from Google Sheet",
+            "text": "The app downloads the wordlist file directly from a published Google Sheet in TSV format which is then easily parsed by JavaScript."
+        },
+        {
+            "title": "Prioritized search algorithm",
+            "text": "The search algorithm checks both languages, first looking for exact matches, then the word standing on its own, then anything starting with the word, and finally anything that contains the word."
+        }
+    ],
+    "image": "./images/portfolio/webdict.png",
+    "imageid": "webdict-img"
+},
+{
     "name": "Autocomplete - React component",
     "badges": [
         "React",
         "TypeScript",
         "SCSS"
     ],
-    "descr": "My first experiment with React and TypeScript, it's a reusable and customizable component that provides autocomplete suggestions for a text input field.",
+    "descr": "My first experiment with React and TypeScript, it's a reusable and customizable component that provides autocomplete suggestions for a text input field. <a href=\"https://www.p-kin.com/react/autocomplete\" target=\"_blank\">Try it now!</a>",
     "features": [
         {
             "title": "Reusable",
@@ -43,23 +124,6 @@
     ],
     "image":"./images/portfolio/vocabcards.png",
     "imageid":"vocabcards-img"
-},
-{
-    "name":"WebDictionary",
-    "badges":["HTML", "CSS", "JavaScript", "JQuery"],
-    "descr":"Web based dictionary app that uses my own word list as a resource. It is possible to search both ways without pre-setting the language, and an autocomplete function also helps to find the word or phrase needed. <a href=\"https://www.p-kin.com/webdict/\" target=\"_blank\">Try it now!</a>",
-    "features":[
-        {
-            "title":"Data from Google Sheet",
-            "text":"The app downloads the wordlist file directly from a published Google Sheet in TSV format which is then easily parsed by JavaScript."
-        },
-        {
-            "title":"Prioritized search algorithm",
-            "text":"The search algorithm checks both languages, first looking for exact matches, then the word standing on its own, then anything starting with the word, and finally anything that contains the word."
-        }
-    ],
-    "image":"./images/portfolio/webdict.png",
-    "imageid":"webdict-img"
 },
 {
     "name":"CountDowns app",
