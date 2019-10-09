@@ -65,7 +65,7 @@
         "TypeScript",
         "SCSS"
     ],
-    "descr": "Web based dictionary app that uses my own word list as a resource. It is possible to search both ways without pre-setting the language, and an autocomplete function also helps to find the word or phrase needed. <a href=\"https://www.p-kin.com/webdict/\" target=\"_blank\">Try it now!</a>",
+    "descr": "Web based dictionary app that uses my own word list as a resource. It is possible to search both ways without pre-setting the language, and an autocomplete function also helps to find the word or phrase needed. <a href=\"https://dict.p-kin.com\" target=\"_blank\">Try it now!</a>",
     "features": [
         {
             "title": "Data from Google Sheet",
@@ -86,7 +86,7 @@
         "TypeScript",
         "SCSS"
     ],
-    "descr": "My first experiment with React and TypeScript, it's a reusable and customizable component that provides autocomplete suggestions for a text input field. <a href=\"https://www.p-kin.com/react/autocomplete\" target=\"_blank\">Try it now!</a>",
+    "descr": "My first experiment with React and TypeScript, it's a reusable and customizable component that provides autocomplete suggestions for a text input field. <a href=\"https://stuff.p-kin.com/react/autocomplete\" target=\"_blank\">Try it now!</a>",
     "features": [
         {
             "title": "Reusable",
@@ -128,7 +128,7 @@
 {
     "name":"CountDowns app",
     "badges":["JavaScript", "JQuery", "HTML5", "CSS", "Bootstrap"],
-    "descr":"As I wanted to practice using cookies and localStorage I created a tiny web application for managing countdown timers. <a href=\"https://countdowns.p-kin.com\" target=\"_blank\">Try it now!</a>",
+    "descr":"As I wanted to practice using cookies and localStorage I created a tiny web application for managing countdown timers. <a href=\"https://stuff.p-kin.com/countdowns\" target=\"_blank\">Try it now!</a>",
     "features":[
         {
             "title":"User Account management",
@@ -216,7 +216,7 @@
 {
     "name":"Bullshit Generator",
     "badges":["JavaScript", "JQuery", "HTML5", "CSS", "Bootstrap"],
-    "descr":"It started out as a Java project at school, but I really liked the possibilities of the generator algorithms, so I decided to \"translate\" the program to JavaScript and created a nice colorful web UI for it. <a href=\"https://www.p-kin.com/bullshitgenerator\" target=\"_blank\">Try it now!</a>",
+    "descr":"It started out as a Java project at school, but I really liked the possibilities of the generator algorithms, so I decided to \"translate\" the program to JavaScript and created a nice colorful web UI for it. <a href=\"https://stuff.p-kin.com/bullshitgenerator\" target=\"_blank\">Try it now!</a>",
     "features":[
         {
             "title":"Multi-language",
