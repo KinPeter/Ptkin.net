@@ -3,8 +3,8 @@
 */
 
 //Primary domain:
-// const domain = 'https://cors-anywhere.herokuapp.com/https://www.p-kin.com';
-const domain = 'https://www.p-kin.com';
+// const domain = 'https://cors-anywhere.herokuapp.com/https://old.p-kin.com';
+const domain = 'https://old.p-kin.com';
 
 const page = {
     sections: [

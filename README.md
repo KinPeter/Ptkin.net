@@ -1,2 +1,2 @@
 # P-kin.com
-My homepage at p-kin.com
+My old, first homepage at old.p-kin.com (Just to keep there for nostalgy...)
